@@ -1,3 +1,9 @@
 [gd_scene format=3 uid="uid://bng4diwyut6y4"]
 
+[ext_resource type="Texture2D" uid="uid://bc1wceqemjbdr" path="res://sprites/player_placeholder.png" id="1_3vyb7"]
+
 [node name="Player" type="CharacterBody2D" unique_id=176337773]
+
+[node name="PlayerPlaceholder" type="Sprite2D" parent="." unique_id=486500928]
+position = Vector2(0, 1)
+texture = ExtResource("1_3vyb7")
