@@ -39,10 +39,10 @@ The structure should look like this
 yourProject
 |_ addons
   |_ GodotTogether
-    |_ src
-      |_ scripts
-      |_ img
-      |_ scenes
+	|_ src
+	  |_ scripts
+	  |_ img
+	  |_ scenes
 ```
 
 ### Enabling 
