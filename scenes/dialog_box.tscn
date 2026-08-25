@@ -3,9 +3,33 @@
 [ext_resource type="Script" uid="uid://b5r7pupe5epdj" path="res://scripts/dialog_box.gd" id="1_df88m"]
 [ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_tihiy"]
 [ext_resource type="PackedScene" uid="uid://cklfjlnqb2smk" path="res://scenes/panel.tscn" id="2_df88m"]
+[ext_resource type="Texture2D" uid="uid://d2w21ltvnopfo" path="res://sprites/dialog_arrow.png" id="4_kxkgd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1eln1"]
 line_spacing = 0.0
+font_size = 11
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0qdq"]
+atlas = ExtResource("4_kxkgd")
+region = Rect2(0, 0, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_caxlw"]
+atlas = ExtResource("4_kxkgd")
+region = Rect2(3, 0, 3, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1eln1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0qdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_caxlw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 2.0
+}]
 
 [node name="DialogBox" type="CanvasLayer" unique_id=1342310527]
 script = ExtResource("1_df88m")
@@ -14,8 +38,9 @@ script = ExtResource("1_df88m")
 visible = false
 layout_mode = 3
 anchors_preset = 0
+offset_top = 9.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 49.0
 theme = ExtResource("1_tihiy")
 
 [node name="Panel" parent="Control" unique_id=800604286 instance=ExtResource("2_df88m")]
@@ -23,15 +48,24 @@ layout_mode = 0
 offset_left = 7.0
 offset_top = 109.0
 offset_right = 313.0
-offset_bottom = 173.0
+offset_bottom = 164.0
 
 [node name="Text" type="Label" parent="Control" unique_id=672290840]
-custom_minimum_size = Vector2(290, 54)
-custom_maximum_size = Vector2(290, 54)
+custom_minimum_size = Vector2(290, 45)
+custom_maximum_size = Vector2(290, 45)
 layout_mode = 0
 offset_left = 15.0
 offset_top = 114.0
 offset_right = 305.0
-offset_bottom = 168.0
+offset_bottom = 159.0
+text = "testestestestestest"
 label_settings = SubResource("LabelSettings_1eln1")
 autowrap_mode = 3
+
+[node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1722715516]
+visible = false
+position = Vector2(300, 162)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1eln1")
+autoplay = "default"
+frame_progress = 0.6980771
