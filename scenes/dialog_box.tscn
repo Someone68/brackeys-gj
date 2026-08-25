@@ -68,4 +68,4 @@ position = Vector2(300, 162)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_1eln1")
 autoplay = "default"
-frame_progress = 0.8571687
+frame_progress = 0.38508153

@@ -13,8 +13,6 @@ var can_interact := true
 func _ready() -> void:
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
 	can_move = not Global.dialog_visible
 	can_interact = not Global.dialog_visible
