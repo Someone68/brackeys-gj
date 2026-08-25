@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bse7g0eihdvmg" path="res://scripts/interactable_test.gd" id="1_r4px6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
-size = Vector2(32, 32)
+size = Vector2(32, 16)
 
 [node name="InteractableTest" type="StaticBody2D" unique_id=180759376 groups=["interactable"]]
 script = ExtResource("1_r4px6")
@@ -13,4 +13,5 @@ script = ExtResource("1_r4px6")
 texture = ExtResource("1_evilb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=235870931]
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_1eln1")

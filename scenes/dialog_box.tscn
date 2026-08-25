@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://4goohngspn1y"]
+
+[ext_resource type="Script" uid="uid://b5r7pupe5epdj" path="res://scripts/dialog_box.gd" id="1_df88m"]
+[ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_tihiy"]
+[ext_resource type="PackedScene" uid="uid://cklfjlnqb2smk" path="res://scenes/panel.tscn" id="2_df88m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1eln1"]
+line_spacing = 0.0
+
+[node name="DialogBox" type="CanvasLayer" unique_id=1342310527]
+script = ExtResource("1_df88m")
+
+[node name="Control" type="Control" parent="." unique_id=1198779667]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_tihiy")
+
+[node name="Panel" parent="Control" unique_id=800604286 instance=ExtResource("2_df88m")]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 109.0
+offset_right = 313.0
+offset_bottom = 173.0
+
+[node name="Text" type="Label" parent="Control" unique_id=672290840]
+custom_minimum_size = Vector2(290, 54)
+custom_maximum_size = Vector2(290, 54)
+layout_mode = 0
+offset_left = 15.0
+offset_top = 114.0
+offset_right = 305.0
+offset_bottom = 168.0
+label_settings = SubResource("LabelSettings_1eln1")
+autowrap_mode = 3
