@@ -1,11 +1,13 @@
 extends CharacterBody2D
 
-@export var speed = 100
+@export var speed := 100.0
 @export var INTERACT_RANGE := 24.0
 @export var FEET_OFFSET := Vector2(0, 0)
 
 @onready var ray: RayCast2D = $RayCast2D
-var facing = Vector2(1, 0)
+var facing := Vector2(1, 0)
+var can_move := true
+var can_interact := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,8 +15,11 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _physics_process(delta: float) -> void:
-	var input_direction = Input.get_vector("left", "right", "up", "down")
+func _physics_process(_delta: float) -> void:
+	can_move = not Global.dialog_visible
+	can_interact = not Global.dialog_visible
+	
+	var input_direction = Input.get_vector("left", "right", "up", "down") if can_move else Vector2.ZERO
 	if (not input_direction.is_zero_approx()):
 		facing = input_direction.normalized()
 		ray.target_position = facing * INTERACT_RANGE
@@ -22,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-
 func update_ray() -> void:
 	ray.target_position = facing * INTERACT_RANGE
 	if abs(facing.x) > abs(facing.y):
@@ -30,11 +34,13 @@ func update_ray() -> void:
 	else:
 		ray.position = Vector2.ZERO
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("interact"):
 		try_interact()
 
 func try_interact() -> void:
+	if not can_interact:
+		return
 	if not ray.is_colliding():
 		return
 	var c = ray.get_collider()

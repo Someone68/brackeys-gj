@@ -1,15 +1,17 @@
 extends CanvasLayer
 
-var dialog_visible := false
 var _skip_requested := false
 
 func _input(event: InputEvent) -> void:
-	if dialog_visible and event.is_action_pressed("cancel"):
+	if Global.dialog_visible and event.is_action_pressed("cancel"):
 		_skip_requested = true
 		get_viewport().set_input_as_handled()
 
-func show_dialog(dialogue: Array, speed: float = 0.04, pause_multiplers := [2.5, 3]):
-	dialog_visible = true
+func show_dialog(dialogue: Array, speed: float = 0.03, pause_multipliers := [2.5, 3], wait_for_input := true):
+	if (Global.dialog_visible):
+		while Global.dialog_visible:
+			await get_tree().process_frame
+	Global.dialog_visible = true
 	$Control.visible = true
 	_skip_requested = false
 	for text in dialogue:
@@ -21,19 +23,20 @@ func show_dialog(dialogue: Array, speed: float = 0.04, pause_multiplers := [2.5,
 			$Control/Text.text += c
 			var wait_time = speed
 			if (c in [';', ',', ':']):
-				wait_time *= pause_multiplers[0]
+				wait_time *= pause_multipliers[0]
 			elif (c in ['.', '?', '!']):
-				wait_time *= pause_multiplers[1]
+				wait_time *= pause_multipliers[1]
 			await get_tree().create_timer(wait_time).timeout
 		$Icon.visible = true
 		_skip_requested = false
 		
-		while not Input.is_action_just_pressed("interact"):
-			await get_tree().process_frame
+		if wait_for_input:
+			while not Input.is_action_just_pressed("interact"):
+				await get_tree().process_frame
 		
 		$Icon.visible = false
 	
-	dialog_visible = false
+	Global.dialog_visible = false
 	$Control.visible = false
 
 #func _process(delta: float) -> void:
