@@ -21,6 +21,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=123659342]
-position = Vector2(0, 9)
+position = Vector2(0, 6)
 target_position = Vector2(37, 0)
 collide_with_areas = true
