@@ -11,18 +11,29 @@ var can_interact := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$AnimatedSprite2D.play("idle_down")
 
 func _physics_process(_delta: float) -> void:
 	can_move = not Global.dialog_visible
 	can_interact = not Global.dialog_visible
 	
 	var input_direction = Input.get_vector("left", "right", "up", "down") if can_move else Vector2.ZERO
-	if (not input_direction.is_zero_approx()):
+	if not input_direction.is_zero_approx():
 		facing = input_direction.normalized()
 		ray.target_position = facing * INTERACT_RANGE
-	velocity = input_direction * speed
 	
+	var moving := get_real_velocity().length_squared() > 1.0
+
+	var dir := "side"
+	if absf(facing.y) > absf(facing.x):
+		dir = "up" if facing.y < 0 else "down"
+
+	$AnimatedSprite2D.play(("move_" if not input_direction.is_zero_approx() and moving else "idle_") + dir)
+
+	if dir == "side":
+		$AnimatedSprite2D.flip_h = facing.x < 0
+	
+	velocity = input_direction * speed
 	move_and_slide()
 	
 func update_ray() -> void:
