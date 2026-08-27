@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed := 100.0
@@ -9,13 +10,15 @@ var facing := Vector2(1, 0)
 var can_move := true
 var can_interact := true
 
+var in_transition := false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle_down")
 
 func _physics_process(_delta: float) -> void:
-	can_move = not Global.dialog_visible
-	can_interact = not Global.dialog_visible
+	can_move = not Global.dialog_visible and not in_transition
+	can_interact = not Global.dialog_visible and not in_transition
 	
 	var input_direction = Input.get_vector("left", "right", "up", "down") if can_move else Vector2.ZERO
 	if not input_direction.is_zero_approx():

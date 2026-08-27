@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ixbyba55nl48"]
+
+[ext_resource type="PackedScene" uid="uid://di4ugphhvda4i" path="res://scenes/floor.tscn" id="1_xlkwu"]
+[ext_resource type="PackedScene" uid="uid://buwp2qwyuyect" path="res://scenes/walls.tscn" id="2_s7o37"]
+[ext_resource type="PackedScene" uid="uid://dko8uuw52j5cd" path="res://scenes/invisible_wall.tscn" id="3_s7o37"]
+
+[node name="Room" type="Node2D" unique_id=511289127]
+y_sort_enabled = true
+
+[node name="Floor" parent="." unique_id=1418905999 instance=ExtResource("1_xlkwu")]
+
+[node name="Walls" parent="." unique_id=946216624 instance=ExtResource("2_s7o37")]
+
+[node name="InvisibleWall" parent="." unique_id=1533307177 instance=ExtResource("3_s7o37")]
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1307157]
+
+[node name="default" type="Marker2D" parent="Spawns" unique_id=609649644]

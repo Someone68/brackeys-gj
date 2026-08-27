@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://buchf8b1re2p0"
+Fade="*uid://csuij3e1er8vm"
+RoomManager="*uid://bbj2m6llhdayr"
+CaseState="*uid://brg5wievp8710"
+Knowledge="*uid://cy0y5olcpe8qi"
 
 [display]
 
@@ -31,6 +35,10 @@ window/stretch/scale_mode="integer"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/GodotTogether/plugin.cfg")
+
+[global_group]
+
+interactable="whether something can be interacted with the player. make sure to define the _interact() method."
 
 [input]
 
@@ -79,3 +87,5 @@ cancel={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

@@ -35,10 +35,6 @@ region = Rect2(32, 21, 16, 21)
 atlas = ExtResource("2_g2els")
 region = Rect2(48, 21, 16, 21)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
-atlas = ExtResource("2_g2els")
-region = Rect2(32, 0, 16, 21)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3v2ag"]
 atlas = ExtResource("2_g2els")
 region = Rect2(48, 0, 16, 21)
@@ -50,6 +46,10 @@ region = Rect2(64, 0, 16, 21)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f1ej7"]
 atlas = ExtResource("2_g2els")
 region = Rect2(80, 0, 16, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
+atlas = ExtResource("2_g2els")
+region = Rect2(32, 0, 16, 21)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
 atlas = ExtResource("2_g2els")
@@ -107,9 +107,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d2wvv")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_3v2ag")
 }, {
 "duration": 1.0,
@@ -117,6 +114,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ej7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2wvv")
 }],
 "loop": 1,
 "name": &"move_side",
@@ -143,17 +143,13 @@ script = ExtResource("1_g2els")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=647099849]
 position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_1eln1")
-animation = &"move_up"
+animation = &"move_side"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1031921865]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_1eln1")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=771677755]
-position_smoothing_enabled = true
-position_smoothing_speed = 2.0
-
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=123659342]
 position = Vector2(0, -3)
-target_position = Vector2(24, 0)
+target_position = Vector2(18, 0)
 collide_with_areas = true
