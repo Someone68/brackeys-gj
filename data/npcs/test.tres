@@ -1,0 +1,44 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://cxa35qudm74qy"]
+
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_hf2aq"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_mh1b5"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="2_g3t6h"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="3_4kiaw"]
+
+[sub_resource type="Resource" id="Resource_p8pkb"]
+script = ExtResource("1_hf2aq")
+entry_id = "0"
+text = "test dialogue"
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_uit3j"]
+script = ExtResource("2_g3t6h")
+label = "test choice"
+response = "test 1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_tl5bd"]
+script = ExtResource("2_g3t6h")
+label = "test choice"
+response = "test 2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_5ejjj"]
+script = ExtResource("1_hf2aq")
+entry_id = "1"
+text = "another test dialog"
+choices = Array[ExtResource("2_g3t6h")]([SubResource("Resource_uit3j"), SubResource("Resource_tl5bd")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_7f327"]
+script = ExtResource("3_4kiaw")
+npc_id = "test_npc"
+idle = Array[ExtResource("1_hf2aq")]([SubResource("Resource_p8pkb"), SubResource("Resource_5ejjj")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
+
+[resource]
+script = ExtResource("1_mh1b5")
+id = "test_npc"
+display_name = "Test NPC"
+dialogue = SubResource("Resource_7f327")
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

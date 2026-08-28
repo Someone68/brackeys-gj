@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://c883hage6mlwo"]
+
+[ext_resource type="Script" uid="uid://ddakf7wd2hyrv" path="res://scripts/npc.gd" id="1_ivh6b"]
+[ext_resource type="Resource" uid="uid://cxa35qudm74qy" path="res://data/npcs/test.tres" id="2_5ejjj"]
+[ext_resource type="Texture2D" uid="uid://bb63atv6fi323" path="res://sprites/mrKen.png" id="2_m5fb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+size = Vector2(12, 7)
+
+[node name="Npc" type="StaticBody2D" unique_id=984430629 groups=["interactable"]]
+script = ExtResource("1_ivh6b")
+profile = ExtResource("2_5ejjj")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662044589]
+position = Vector2(-1, -16)
+texture = ExtResource("2_m5fb5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1444912055]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_1eln1")

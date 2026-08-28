@@ -22,6 +22,9 @@ Fade="*uid://csuij3e1er8vm"
 RoomManager="*uid://bbj2m6llhdayr"
 CaseState="*uid://brg5wievp8710"
 Knowledge="*uid://cy0y5olcpe8qi"
+GameFlow="*uid://bsu8wt55p5tuv"
+Budget="*uid://cot5fqkdutsto"
+DialogueUtil="*uid://c7l73hlk1rpf5"
 
 [display]
 

@@ -21,32 +21,38 @@ var current_choices := []
 ]
 
 func activate(choices: Array[String], default : int = 0):
-	current_choices = choices
 	if (active == true): return
+	current_choices = choices
 	Global.choice_visible = true
 	active = true
-	selected = default
+	selected = clampi(default, 0, choices.size() - 1)
 	for i in choice_items.size():
-		var item = choice_items[i]
-		item.text = choices[i]
+		if i < choices.size():
+			choice_items[i].text = choices[i]
+			choice_items[i].visible = true
+		else:
+			choice_items[i].visible = false
+			select_items[i].visible = false
 	
+	await get_tree().process_frame
 	var res = await on_select
 	Global.choice_visible = false
 	queue_free()
 	return res
 
 func _process(_delta: float) -> void:
+	if not active: return
+	var last := current_choices.size() - 1
 	if (Input.is_action_just_pressed("down")):
 		choice_items[selected].modulate.b = 255
 		select_items[selected].visible = false
 		selected += 1
-		if (selected > 3): selected = 0
-	
+		if (selected > last): selected = 0
 	elif(Input.is_action_just_pressed("up")):
 		choice_items[selected].modulate.b = 255
 		select_items[selected].visible = false
 		selected -= 1
-		if (selected < 0): selected = 3
+		if (selected < 0): selected = last
 	
 	choice_items[selected].modulate.b = 0
 	select_items[selected].visible = true
