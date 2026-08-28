@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://be16vwr6vfpcf"]
+
+[ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_3bj22"]
+[ext_resource type="Script" uid="uid://cpbf3jspta6xy" path="res://scripts/choice_picker.gd" id="1_hno8c"]
+[ext_resource type="PackedScene" uid="uid://cklfjlnqb2smk" path="res://scenes/panel.tscn" id="1_hptbr"]
+[ext_resource type="Texture2D" uid="uid://duxk0434g8lse" path="res://sprites/select_arrow.png" id="4_fvpm3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a6dhg"]
+atlas = ExtResource("4_fvpm3")
+region = Rect2(0, 0, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_glhb7"]
+atlas = ExtResource("4_fvpm3")
+region = Rect2(3, 0, 3, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1eln1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a6dhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_glhb7")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 0.5
+}]
+
+[node name="ChoicePicker" type="CanvasLayer" unique_id=1381251905]
+script = ExtResource("1_hno8c")
+
+[node name="Control" type="Control" parent="." unique_id=417645857]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_3bj22")
+
+[node name="Panel" parent="Control" unique_id=800604286 instance=ExtResource("1_hptbr")]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 100.0
+offset_right = 312.0
+offset_bottom = 172.0
+
+[node name="Choice4" type="Label" parent="Control" unique_id=1018197131]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 150.0
+offset_right = 60.0
+offset_bottom = 164.0
+text = "test"
+
+[node name="Choice3" type="Label" parent="Control" unique_id=267649319]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 136.0
+offset_right = 60.0
+offset_bottom = 150.0
+text = "test"
+
+[node name="Choice2" type="Label" parent="Control" unique_id=1338209213]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 122.0
+offset_right = 60.0
+offset_bottom = 136.0
+text = "test"
+
+[node name="Choice1" type="Label" parent="Control" unique_id=1257589178]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 108.0
+offset_right = 60.0
+offset_bottom = 122.0
+text = "test"
+
+[node name="Select1" type="AnimatedSprite2D" parent="." unique_id=421457557]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(16, 115)
+sprite_frames = SubResource("SpriteFrames_1eln1")
+autoplay = "default"
+frame_progress = 0.73267615
+
+[node name="Select2" type="AnimatedSprite2D" parent="." unique_id=2014071616]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(16, 129)
+sprite_frames = SubResource("SpriteFrames_1eln1")
+autoplay = "default"
+frame_progress = 0.4775076
+
+[node name="Select3" type="AnimatedSprite2D" parent="." unique_id=2009209667]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(16, 143)
+sprite_frames = SubResource("SpriteFrames_1eln1")
+autoplay = "default"
+frame_progress = 0.45678136
+
+[node name="Select4" type="AnimatedSprite2D" parent="." unique_id=922463547]
+visible = false
+modulate = Color(1, 1, 0, 1)
+position = Vector2(16, 157)
+sprite_frames = SubResource("SpriteFrames_1eln1")
+autoplay = "default"
+frame_progress = 0.45678136

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfhwxlqr5lhfo"]
+
+[ext_resource type="Script" uid="uid://bxnatgmltl2fx" path="res://scripts/evidence_item.gd" id="1_nvicl"]
+
+[node name="EvidenceItem" type="Area2D" unique_id=1982682065]
+script = ExtResource("1_nvicl")

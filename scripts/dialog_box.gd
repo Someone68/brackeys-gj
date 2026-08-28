@@ -7,7 +7,7 @@ func _input(event: InputEvent) -> void:
 		_skip_requested = true
 		get_viewport().set_input_as_handled()
 
-func show_dialog(dialogue: Array, speed: float = 0.03, pause_multipliers := [2.5, 3], wait_for_input := true):
+func show_dialog(dialogue: Array, speed: float = 0.01, pause_multipliers := [2.5, 3], wait_for_input := true):
 	if (Global.dialog_visible):
 		while Global.dialog_visible:
 			await get_tree().process_frame
@@ -31,6 +31,7 @@ func show_dialog(dialogue: Array, speed: float = 0.03, pause_multipliers := [2.5
 		_skip_requested = false
 		
 		if wait_for_input:
+			await get_tree().process_frame
 			while not Input.is_action_just_pressed("interact"):
 				await get_tree().process_frame
 		

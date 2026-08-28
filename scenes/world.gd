@@ -5,4 +5,11 @@ extends Node2D
 func _ready() -> void:
 	RoomManager.host = $RoomHost
 	RoomManager.player = $Player
-	RoomManager.goto(CaseState.current.start_room)
+	RoomManager.goto("town_square")
+	Global.dialog_node = $DialogBox
+	Global.dialog_initialized = true
+
+func _exit_tree() -> void:
+	if Global.dialog_node == $DialogBox:
+		Global.dialog_initialized = false
+		Global.dialog_node = null

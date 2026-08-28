@@ -2,9 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://ixbyba55nl48" path="res://scenes/rooms/room.tscn" id="1_mgxqe"]
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="2_3q3uc"]
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="3_ohnvu"]
+[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="4_wf0tg"]
+[ext_resource type="Texture2D" uid="uid://cjevr5h84hhxy" path="res://sprites/blood_splatter.png" id="5_wf0tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3s6g"]
 
 [node name="Room" unique_id=511289127 instance=ExtResource("1_mgxqe")]
 
@@ -31,3 +36,21 @@ position = Vector2(8, 184)
 
 [node name="default" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=609649644]
 position = Vector2(184, 216)
+
+[node name="CaseObject" parent="." index="5" unique_id=1672865375 instance=ExtResource("3_ohnvu")]
+z_index = -1
+position = Vector2(96, 176)
+cases = Array[String](["test_case"])
+
+[node name="EvidenceItem" parent="CaseObject" index="0" unique_id=1982682065 groups=["interactable"] instance=ExtResource("4_wf0tg")]
+evidence_id = "test_evidence"
+grants_flag = "found_test_evidence"
+pickup_text = Array[String](["It's a blood stain. Looks at least 3 months old.", "You took a picture and collected the evidence."])
+already_text = Array[String](["It's a blood stain. Looks at least 3 months old.", "You've already taken a picture."])
+destroy_on_pickup = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaseObject/EvidenceItem" index="0" unique_id=1734388269]
+shape = SubResource("RectangleShape2D_x3s6g")
+
+[node name="Sprite2D" type="Sprite2D" parent="CaseObject/EvidenceItem" index="1" unique_id=457549956]
+texture = ExtResource("5_wf0tg")

@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b342r5i30br6h"]
+
+[ext_resource type="Script" uid="uid://c38qobwggqo53" path="res://scripts/case_select.gd" id="1_o1c8k"]
+
+[node name="CaseSelect" type="Control" unique_id=767266961]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o1c8k")
+
+[node name="Button" type="Button" parent="." unique_id=1373688849]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 16.0
+offset_right = 77.0
+offset_bottom = 47.0
+text = "case 1"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

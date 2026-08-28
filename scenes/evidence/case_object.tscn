@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://d0m8yge6l8ajk"]
+
+[ext_resource type="Script" uid="uid://nnv680mpta4s" path="res://scripts/case_object.gd" id="1_m7mek"]
+
+[node name="CaseObject" type="Node2D" unique_id=1672865375]
+y_sort_enabled = true
+script = ExtResource("1_m7mek")

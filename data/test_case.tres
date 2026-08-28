@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CaseData" format=3 uid="uid://da7p1ip1t68wb"]
+
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_oc1hy"]
+[ext_resource type="Script" uid="uid://cbniqpo87y8k4" path="res://scripts/case_data.gd" id="2_icohu"]
+
+[resource]
+script = ExtResource("2_icohu")
+id = "test_case"
+title = "Test Case"
+briefing = "test case lmao"
+metadata/_custom_type_script = "uid://cbniqpo87y8k4"
