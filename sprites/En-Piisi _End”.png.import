@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yxnmgxncvmqm"
-path="res://.godot/imported/ms-leaf.png-5e3ce4f5c9286ce35d49e9e8f3ac66a1.ctex"
+uid="uid://b3wn0k445xjdn"
+path="res://.godot/imported/En-Piisi _End”.png-4352d74e3b23cdd251c8b977735d3b70.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ms-leaf.png"
-dest_files=["res://.godot/imported/ms-leaf.png-5e3ce4f5c9286ce35d49e9e8f3ac66a1.ctex"]
+source_file="res://sprites/En-Piisi _End”.png"
+dest_files=["res://.godot/imported/En-Piisi _End”.png-4352d74e3b23cdd251c8b977735d3b70.ctex"]
 
 [params]
 
