@@ -24,7 +24,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
-"speed": 0.5
+"speed": 1.0
 }]
 
 [node name="ChoicePicker" type="CanvasLayer" unique_id=1381251905]

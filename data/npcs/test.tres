@@ -5,35 +5,44 @@
 [ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="2_g3t6h"]
 [ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="3_4kiaw"]
 
+[sub_resource type="Resource" id="Resource_js354"]
+script = ExtResource("2_g3t6h")
+label = "test1"
+response = Array[String](["you chose first option"])
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_vakuj"]
+script = ExtResource("2_g3t6h")
+label = "test2"
+response = Array[String](["you chose second option"])
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_hno8c"]
+script = ExtResource("2_g3t6h")
+label = "this only appears if you found the blood"
+requires = Array[String](["found_test_evidence"])
+response = Array[String](["you found the test evidence and are rewarded with this amazing dialogue"])
+grants = Array[String](["rewarded"])
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_hf2aq"]
+script = ExtResource("2_g3t6h")
+label = "another option!!"
+requires = Array[String](["rewarded"])
+response = Array[String](["this one only appears if you clicked the previous dialogue"])
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
 [sub_resource type="Resource" id="Resource_p8pkb"]
 script = ExtResource("1_hf2aq")
 entry_id = "0"
-text = "test dialogue"
-metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
-
-[sub_resource type="Resource" id="Resource_uit3j"]
-script = ExtResource("2_g3t6h")
-label = "test choice"
-response = "test 1"
-metadata/_custom_type_script = "uid://b8fkciic120yw"
-
-[sub_resource type="Resource" id="Resource_tl5bd"]
-script = ExtResource("2_g3t6h")
-label = "test choice"
-response = "test 2"
-metadata/_custom_type_script = "uid://b8fkciic120yw"
-
-[sub_resource type="Resource" id="Resource_5ejjj"]
-script = ExtResource("1_hf2aq")
-entry_id = "1"
-text = "another test dialog"
-choices = Array[ExtResource("2_g3t6h")]([SubResource("Resource_uit3j"), SubResource("Resource_tl5bd")])
+text = Array[String](["test dialogue", "test dialogue 2"])
+choices = Array[ExtResource("2_g3t6h")]([SubResource("Resource_js354"), SubResource("Resource_vakuj"), SubResource("Resource_hno8c"), SubResource("Resource_hf2aq")])
 metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
 
 [sub_resource type="Resource" id="Resource_7f327"]
 script = ExtResource("3_4kiaw")
 npc_id = "test_npc"
-idle = Array[ExtResource("1_hf2aq")]([SubResource("Resource_p8pkb"), SubResource("Resource_5ejjj")])
+idle = Array[ExtResource("1_hf2aq")]([SubResource("Resource_p8pkb")])
 metadata/_custom_type_script = "uid://m5h7gpc5npj7"
 
 [resource]
