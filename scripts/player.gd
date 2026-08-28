@@ -17,8 +17,8 @@ func _ready() -> void:
 	$AnimatedSprite2D.play("idle_down")
 
 func _physics_process(_delta: float) -> void:
-	can_move = not Global.dialog_visible and not in_transition and not Global.choice_visible
-	can_interact = not Global.dialog_visible and not in_transition and not Global.choice_visible
+	can_move = not Global.dialog_visible and not in_transition and not Global.choice_visible and not Global.notes_visible
+	can_interact = not Global.dialog_visible and not in_transition and not Global.choice_visible and not Global.notes_visible
 	
 	var input_direction = Input.get_vector("left", "right", "up", "down") if can_move else Vector2.ZERO
 	if not input_direction.is_zero_approx():

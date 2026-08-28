@@ -7,4 +7,5 @@ class_name DialogueEntry extends Resource
 @export_multiline var text: Array[String] = []
 @export var grants: Array[String] = []
 @export var choices: Array[DialogueChoice] = []
+@export var next_id: String
 @export var once: bool = false

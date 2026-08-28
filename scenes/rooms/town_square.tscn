@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="3_ohnvu"]
 [ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="4_wf0tg"]
 [ext_resource type="Texture2D" uid="uid://cjevr5h84hhxy" path="res://sprites/blood_splatter.png" id="5_wf0tg"]
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="6_js354"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(16, 80)
@@ -54,3 +55,6 @@ shape = SubResource("RectangleShape2D_x3s6g")
 
 [node name="Sprite2D" type="Sprite2D" parent="CaseObject/EvidenceItem" index="1" unique_id=457549956]
 texture = ExtResource("5_wf0tg")
+
+[node name="Npc" parent="." index="6" unique_id=984430629 instance=ExtResource("6_js354")]
+position = Vector2(120, 136)

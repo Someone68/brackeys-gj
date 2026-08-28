@@ -8,6 +8,7 @@ func _ready() -> void:
 	RoomManager.goto("town_square")
 	Global.dialog_node = $DialogBox
 	Global.dialog_initialized = true
+	$CanvasLayer/HUD.init(CaseState.current)
 
 func _exit_tree() -> void:
 	if Global.dialog_node == $DialogBox:

@@ -1,0 +1,148 @@
+[gd_scene format=3 uid="uid://5v8bpgfp8gjy"]
+
+[ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_hqnrr"]
+[ext_resource type="PackedScene" uid="uid://b0h4y2y4pmpp" path="res://scenes/ui/transparent_panel.tscn" id="2_8qguk"]
+[ext_resource type="Script" uid="uid://cbdrg2omxjnih" path="res://scripts/hud.gd" id="2_136eg"]
+[ext_resource type="Texture2D" uid="uid://biltdjft0r8cg" path="res://sprites/gavel.png" id="2_bo48s"]
+[ext_resource type="Texture2D" uid="uid://dhwcgqxklk42l" path="res://sprites/magnifying_glass.png" id="3_8qguk"]
+[ext_resource type="Texture2D" uid="uid://b3u8qotvueljv" path="res://sprites/scroll_ui.png" id="6_oj5la"]
+[ext_resource type="Texture2D" uid="uid://c0vn7v7ogot76" path="res://sprites/case_ui.png" id="7_h022r"]
+[ext_resource type="FontFile" uid="uid://cn6ofapmvrqv6" path="res://fonts/Tiny5-Regular.ttf" id="8_4jqwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h022r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jqwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kicr4"]
+
+[node name="HUD" type="Control" unique_id=324665597]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hqnrr")
+script = ExtResource("2_136eg")
+
+[node name="Evidence" parent="." unique_id=1061160677 instance=ExtResource("2_8qguk")]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 4.0
+offset_right = 56.0
+offset_bottom = 26.0
+
+[node name="Mag_Glass" type="Sprite2D" parent="Evidence" unique_id=1725735716]
+position = Vector2(12, 11)
+texture = ExtResource("3_8qguk")
+
+[node name="Label" type="Label" parent="Evidence" unique_id=245882327]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 22.0
+text = "8"
+horizontal_alignment = 1
+
+[node name="StartTrialIcon" parent="." unique_id=835158502 instance=ExtResource("2_8qguk")]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 4.0
+offset_right = 316.0
+offset_bottom = 26.0
+
+[node name="Gavel" type="Sprite2D" parent="StartTrialIcon" unique_id=1392772644]
+position = Vector2(12, 11)
+texture = ExtResource("2_bo48s")
+
+[node name="Label" type="Label" parent="StartTrialIcon" unique_id=769560640]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 22.0
+text = "[B]"
+
+[node name="NotesIcon" parent="." unique_id=1272140877 instance=ExtResource("2_8qguk")]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 28.0
+offset_bottom = 26.0
+
+[node name="Gavel" type="Sprite2D" parent="NotesIcon" unique_id=1505472554]
+position = Vector2(12, 11)
+texture = ExtResource("6_oj5la")
+
+[node name="Label" type="Label" parent="NotesIcon" unique_id=1086335548]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 8.0
+offset_right = 22.0
+offset_bottom = 22.0
+text = "[C]"
+
+[node name="Notes" type="Control" parent="." unique_id=1724986417]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" parent="Notes" unique_id=928408470 instance=ExtResource("2_8qguk")]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 276.0
+offset_bottom = 168.0
+
+[node name="Page1" type="Sprite2D" parent="Notes" unique_id=1476582124]
+position = Vector2(104, 90)
+texture = ExtResource("7_h022r")
+
+[node name="Page2" type="Sprite2D" parent="Notes" unique_id=106988029]
+position = Vector2(216, 90)
+texture = ExtResource("7_h022r")
+
+[node name="CaseInfo" type="RichTextLabel" parent="Notes" unique_id=985329068]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 156.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("8_4jqwt")
+theme_override_fonts/bold_font = ExtResource("8_4jqwt")
+theme_override_fonts/bold_italics_font = ExtResource("8_4jqwt")
+theme_override_fonts/italics_font = ExtResource("8_4jqwt")
+theme_override_fonts/mono_font = ExtResource("8_4jqwt")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+text = "case info"
+
+[node name="UserNotes" type="TextEdit" parent="Notes" unique_id=852251858]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 156.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("8_4jqwt")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h022r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4jqwt")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_kicr4")
+placeholder_text = "Take notes here..."
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+tab_input_mode = false
