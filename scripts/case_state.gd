@@ -3,8 +3,20 @@ extends Node
 var current: CaseData = null
 var reputation: int = 50
 var evidence_held: Array[String] = []
+var evidence_shown: Array[String] = []
 var used_entries: Dictionary = {}
 var accused: String = ""
+var last_convicted := false
+var last_strength := 0
+var last_attempts := 0
+var last_correct := false
+
+func score() -> int:
+	return (500 if last_convicted else 0) \
+		+ last_strength * 5 \
+		+ Budget.confronts * 25 \
+		+ reputation \
+		- (last_attempts - 1) * 150
 
 func start(c: CaseData) -> void:
 	current = c
@@ -29,7 +41,3 @@ func missing_gate() -> int:
 	for f in current.accuse_gate:
 		if not Knowledge.has(f): n += 1
 	return n
-
-func score() -> int:
-	var correct := accused == current.culprit_id
-	return 100 + Budget.confronts * 25 + reputation + (500 if correct else 0)

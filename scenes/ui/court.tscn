@@ -2,10 +2,50 @@
 
 [ext_resource type="Texture2D" uid="uid://dv0dy1col7lad" path="res://sprites/court_bg.png" id="1_3wubk"]
 [ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_51qxx"]
+[ext_resource type="Script" uid="uid://cq5j4gglhhvja" path="res://scripts/court.gd" id="2_dm44l"]
 [ext_resource type="Texture2D" uid="uid://biltdjft0r8cg" path="res://sprites/gavel.png" id="3_vnv1o"]
+[ext_resource type="PackedScene" uid="uid://ofqjrmy7hbnw" path="res://scenes/ui/notes.tscn" id="4_vnv1o"]
+[ext_resource type="PackedScene" uid="uid://b0h4y2y4pmpp" path="res://scenes/ui/transparent_panel.tscn" id="5_okrwu"]
+[ext_resource type="Texture2D" uid="uid://b3u8qotvueljv" path="res://sprites/scroll_ui.png" id="6_dm44l"]
+[ext_resource type="PackedScene" uid="uid://c44xjr4upq8dn" path="res://scenes/ui/selector.tscn" id="7_tw3vo"]
+[ext_resource type="Script" uid="uid://br48hupmaja2i" path="res://scripts/selector_item.gd" id="8_nte0y"]
+[ext_resource type="PackedScene" uid="uid://4goohngspn1y" path="res://scenes/dialog_box.tscn" id="8_p0sd7"]
+[ext_resource type="Texture2D" uid="uid://bb63atv6fi323" path="res://sprites/mrKen.png" id="9_1u2f4"]
+[ext_resource type="Texture2D" uid="uid://cvgnfouku3dkk" path="res://sprites/green.png" id="10_ddpkk"]
+[ext_resource type="Texture2D" uid="uid://rhhf8wx8utf1" path="res://sprites/gray.png" id="11_tsfca"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1eln1"]
 texture = ExtResource("1_3wubk")
+
+[sub_resource type="Resource" id="Resource_a2elc"]
+script = ExtResource("8_nte0y")
+texture = ExtResource("9_1u2f4")
+caption = "one"
+metadata/_custom_type_script = "uid://br48hupmaja2i"
+
+[sub_resource type="Resource" id="Resource_qubcb"]
+script = ExtResource("8_nte0y")
+texture = ExtResource("10_ddpkk")
+caption = "two"
+metadata/_custom_type_script = "uid://br48hupmaja2i"
+
+[sub_resource type="Resource" id="Resource_j0jfk"]
+script = ExtResource("8_nte0y")
+texture = ExtResource("11_tsfca")
+caption = "three"
+metadata/_custom_type_script = "uid://br48hupmaja2i"
+
+[sub_resource type="Resource" id="Resource_1eln1"]
+script = ExtResource("8_nte0y")
+texture = ExtResource("6_dm44l")
+caption = "ev.1"
+metadata/_custom_type_script = "uid://br48hupmaja2i"
+
+[sub_resource type="Resource" id="Resource_x3s6g"]
+script = ExtResource("8_nte0y")
+texture = ExtResource("3_vnv1o")
+caption = "ev.2"
+metadata/_custom_type_script = "uid://br48hupmaja2i"
 
 [node name="Court" type="Control" unique_id=542322436]
 layout_mode = 3
@@ -15,6 +55,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_51qxx")
+script = ExtResource("2_dm44l")
 
 [node name="Background" type="Panel" parent="." unique_id=472320660]
 layout_mode = 0
@@ -24,17 +65,86 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_1eln1")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=612995174]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 24.0
-offset_bottom = 24.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 23.0
+offset_bottom = 23.0
 texture = ExtResource("3_vnv1o")
 
 [node name="Label" type="Label" parent="." unique_id=293769029]
 layout_mode = 0
-offset_left = 27.0
-offset_top = 10.0
-offset_right = 67.0
-offset_bottom = 24.0
+offset_left = 25.0
+offset_top = 9.0
+offset_right = 65.0
+offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "TRIAL"
+
+[node name="AccusationLabel" type="Label" parent="." unique_id=360773754]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 77.0
+offset_bottom = 57.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ACCUSATION"
+
+[node name="EvidenceLabel" type="Label" parent="." unique_id=1721733284]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 108.0
+offset_right = 77.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "EVIDENCE"
+
+[node name="Panel3" parent="." unique_id=1697179628 instance=ExtResource("5_okrwu")]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 7.0
+offset_right = 313.0
+offset_bottom = 25.0
+
+[node name="NotesIcon" type="Sprite2D" parent="Panel3" unique_id=1511639754]
+position = Vector2(9, 9)
+texture = ExtResource("6_dm44l")
+
+[node name="Label4" type="Label" parent="." unique_id=1170055824]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 9.0
+offset_right = 312.0
+offset_bottom = 23.0
+text = "Case Notes [C]"
+
+[node name="AccusationPanel" parent="." unique_id=536527534 instance=ExtResource("5_okrwu")]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 58.0
+offset_right = 313.0
+offset_bottom = 98.0
+
+[node name="Selector" parent="AccusationPanel" unique_id=1423837616 instance=ExtResource("7_tw3vo")]
+layout_mode = 1
+offset_bottom = 8.0
+enabled = true
+items = Array[ExtResource("8_nte0y")]([SubResource("Resource_a2elc"), SubResource("Resource_qubcb"), SubResource("Resource_j0jfk")])
+
+[node name="EvidencePanel" parent="." unique_id=1061160677 instance=ExtResource("5_okrwu")]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 123.0
+offset_right = 313.0
+offset_bottom = 163.0
+
+[node name="Selector" parent="EvidencePanel" unique_id=923809746 instance=ExtResource("7_tw3vo")]
+layout_mode = 1
+items = Array[ExtResource("8_nte0y")]([SubResource("Resource_1eln1"), SubResource("Resource_x3s6g")])
+
+[node name="Notes" parent="." unique_id=748313566 instance=ExtResource("4_vnv1o")]
+layout_mode = 0
+
+[node name="DialogBox" parent="." unique_id=1342310527 instance=ExtResource("8_p0sd7")]
+
+[connection signal="picked" from="AccusationPanel/Selector" to="." method="_on_accusation"]
+[connection signal="picked" from="EvidencePanel/Selector" to="." method="_on_evidence"]

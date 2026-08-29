@@ -5,6 +5,7 @@ var dialog_initialized := false
 var dialog_node : CanvasLayer
 var choice_visible := false
 var notes_visible := false
+var notes : String = ""
 const CHOICE_PICKER := preload("res://scenes/choice_picker.tscn")
 
 func show_dialog(dialogue: Array, speed: float = 0.02, pause_multipliers := [4.5, 6], wait_for_input := true, title := "") -> void:

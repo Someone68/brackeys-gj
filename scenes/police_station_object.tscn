@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://d3xbp4wb7n4e0"]
+
+[ext_resource type="Texture2D" uid="uid://dipkrks1uwdud" path="res://sprites/police station.png" id="1_t7fk8"]
+
+[node name="PoliceStation" type="StaticBody2D" unique_id=633508164]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=229169078]
+position = Vector2(-2, -48)
+scale = Vector2(2, 2)
+texture = ExtResource("1_t7fk8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1726025211]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(-18, 0, -30, 0, -30, -8, -72, -8, -72, -44, -30, -44, -30, -60, 26, -60, 26, -44, 70, -44, 70, -8, 28, -8, 28, 0, 16, 0, 16, -20, -18, -20)

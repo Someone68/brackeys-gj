@@ -8,7 +8,9 @@ var _transitioning := false
 
 const ROOMS := {
 	"town_square": "res://scenes/rooms/town_square.tscn",
-	"left_branch": "res://scenes/rooms/left_branch.tscn"
+	"upper_branch": "res://scenes/rooms/upper_branch.tscn",
+	"left_branch": "res://scenes/rooms/left_branch.tscn",
+	"police_station": "res://scenes/rooms/police_station.tscn"
 }
 
 func goto(room_id: String, spawn_name: String = "default") -> void:

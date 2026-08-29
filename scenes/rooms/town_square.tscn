@@ -2,15 +2,18 @@
 
 [ext_resource type="PackedScene" uid="uid://ixbyba55nl48" path="res://scenes/rooms/room.tscn" id="1_mgxqe"]
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="2_3q3uc"]
-[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="3_ohnvu"]
-[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="4_wf0tg"]
-[ext_resource type="Texture2D" uid="uid://cjevr5h84hhxy" path="res://sprites/blood_splatter.png" id="5_wf0tg"]
-[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="6_js354"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
-size = Vector2(16, 80)
+[ext_resource type="PackedScene" uid="uid://dipa6j4s25gfu" path="res://scenes/interactables/interactable.tscn" id="3_ohnvu"]
+[ext_resource type="Texture2D" uid="uid://glpakad7si63" path="res://sprites/sign.png" id="4_wf0tg"]
+[ext_resource type="Texture2D" uid="uid://3scj50ga6gij" path="res://sprites/small_sign.png" id="5_wf0tg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3s6g"]
+size = Vector2(16, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vp6q"]
+size = Vector2(8, 6)
 
 [node name="Room" unique_id=511289127 instance=ExtResource("1_mgxqe")]
 
@@ -22,14 +25,23 @@ tile_map_data = PackedByteArray("AAAAABIAAAAAAAAAAAABAAQAAAADAAAAAAABAAgAAAAAAAA
 
 [node name="InvisibleWall" parent="." index="2" unique_id=1533307177]
 z_index = 1
-tile_map_data = PackedByteArray("AAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAAAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAANAAEAAAAAAAAAAAANAAAAAAAAAAAAAAAPAAYAAAAAAAAAAAAOABAAAAAAAAAAAAAPABAAAAAAAAAAAAAQABAAAAAAAAAAAAAQAA8AAAAAAAAAAAARAA4AAAAAAAAAAAASAA4AAAAAAAAAAAATAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAJABAAAAAAAAAAAAAIABAAAAAAAAAAAAAHABAAAAAAAAAAAAAGABAAAAAAAAAAAAAJABYAAAAAAAAAAAAJABUAAAAAAAAAAAAJABQAAAAAAAAAAAAJABMAAAAAAAAAAAAJABIAAAAAAAAAAAAJABEAAAAAAAAAAAAFABAAAAAAAAAAAAAEABAAAAAAAAAAAAAEAA8AAAAAAAAAAAAEAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAADAA4AAAAAAAAAAAACAA4AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAPAAQAAAAAAAAAAAARAAcAAAAAAAAAAAARAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAAOABEAAAAAAAAAAAAOABIAAAAAAAAAAAAOABMAAAAAAAAAAAAOABQAAAAAAAAAAAAOABUAAAAAAAAAAAAOABYAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAJAAQAAAAAAAAAAAAJAAMAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAAAAAAAAAAAAAANAAMAAAAAAAAAAAANAAIAAAAAAAAAAAANAAEAAAAAAAAAAAANAAAAAAAAAAAAAAAPAAYAAAAAAAAAAAAPABAAAAAAAAAAAAAQABAAAAAAAAAAAAAQAA8AAAAAAAAAAAARAA4AAAAAAAAAAAASAA4AAAAAAAAAAAATAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAJABAAAAAAAAAAAAAIABAAAAAAAAAAAAAHABAAAAAAAAAAAAAGABAAAAAAAAAAAAAJABYAAAAAAAAAAAAJABUAAAAAAAAAAAAJABQAAAAAAAAAAAAJABMAAAAAAAAAAAAJABIAAAAAAAAAAAAJABEAAAAAAAAAAAAFABAAAAAAAAAAAAAEABAAAAAAAAAAAAAEAA8AAAAAAAAAAAAEAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAANAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAAFAAgAAAAAAAAAAAAEAAgAAAAAAAAAAAADAAgAAAAAAAAAAAACAAgAAAAAAAAAAAABAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAADAA4AAAAAAAAAAAACAA4AAAAAAAAAAAABAA4AAAAAAAAAAAAAAA4AAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAFAAcAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAFAAUAAAAAAAAAAAAPAAQAAAAAAAAAAAARAAcAAAAAAAAAAAARAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAAPABEAAAAAAAAAAAAPABIAAAAAAAAAAAAPABMAAAAAAAAAAAAPABQAAAAAAAAAAAAPABUAAAAAAAAAAAAPABYAAAAAAAAAAAA=")
 
 [node name="Door" parent="." index="3" unique_id=1369385183 instance=ExtResource("2_3q3uc")]
 position = Vector2(-8, 184)
 target_room = "left_branch"
 target_spawn = "right_entrance"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0" unique_id=1168283188]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0" unique_id=1473344056]
+shape = SubResource("RectangleShape2D_x3s6g")
+
+[node name="Door2" parent="." index="4" unique_id=723416264 instance=ExtResource("2_3q3uc")]
+position = Vector2(184, 0)
+target_room = "upper_branch"
+target_spawn = "bottom_entrance"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0" unique_id=1751061843]
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1eln1")
 
 [node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="0" unique_id=1648740687]
@@ -38,23 +50,34 @@ position = Vector2(8, 184)
 [node name="default" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=609649644]
 position = Vector2(184, 216)
 
-[node name="CaseObject" parent="." index="5" unique_id=1672865375 instance=ExtResource("3_ohnvu")]
-z_index = -1
-position = Vector2(96, 176)
-cases = Array[String](["test_case"])
+[node name="top_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=2134839833]
+position = Vector2(184, 8)
 
-[node name="EvidenceItem" parent="CaseObject" index="0" unique_id=1982682065 groups=["interactable"] instance=ExtResource("4_wf0tg")]
-evidence_id = "test_evidence"
-grants_flag = "found_test_evidence"
-pickup_text = Array[String](["It's a blood stain. Looks at least 3 months old.", "You took a picture and collected the evidence."])
-already_text = Array[String](["It's a blood stain. Looks at least 3 months old.", "You've already taken a picture."])
-destroy_on_pickup = false
+[node name="Interactable" parent="." index="6" unique_id=556332728 instance=ExtResource("3_ohnvu")]
+position = Vector2(128, 112)
+dialogue = Array[String](["North: Police Station
+South: Church
+", "West: Bar, Residential
+East: Market"])
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaseObject/EvidenceItem" index="0" unique_id=1734388269]
-shape = SubResource("RectangleShape2D_x3s6g")
+[node name="Sprite2D" type="Sprite2D" parent="Interactable" index="0" unique_id=406809706]
+position = Vector2(-7, -26)
+texture = ExtResource("4_wf0tg")
+centered = false
 
-[node name="Sprite2D" type="Sprite2D" parent="CaseObject/EvidenceItem" index="1" unique_id=457549956]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" index="1" unique_id=1882623930]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_6vp6q")
+
+[node name="Interactable2" parent="." index="7" unique_id=989209185 instance=ExtResource("3_ohnvu")]
+position = Vector2(224, 112)
+dialogue = Array[String](["Welcome to the center of Leaf City. ", "Here lies the memorial of nothing, which nobody knows about since its nothing and there is no memorial."])
+
+[node name="Sprite2D" type="Sprite2D" parent="Interactable2" index="0" unique_id=625151511]
+position = Vector2(-9, -17)
 texture = ExtResource("5_wf0tg")
+centered = false
 
-[node name="Npc" parent="." index="6" unique_id=984430629 instance=ExtResource("6_js354")]
-position = Vector2(120, 136)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable2" index="1" unique_id=1502204060]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_6vp6q")

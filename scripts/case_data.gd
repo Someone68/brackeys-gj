@@ -9,3 +9,8 @@ class_name CaseData extends Resource
 @export var base_evidence_required: int = 3
 @export var npcs: Array[NPCProfile] = []
 @export var accuse_gate: Array[String] = [] 
+@export var reactions: Array[CourtReaction] = []
+@export var fallback_reaction: CourtReaction
+@export var convict_threshold: int = 60
+@export_multiline var verdict_guilty: String
+@export_multiline var verdict_acquit: String

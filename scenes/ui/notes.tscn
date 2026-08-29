@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ofqjrmy7hbnw"]
+
+[ext_resource type="Script" uid="uid://csvvubqn065kg" path="res://scripts/notes.gd" id="1_ok4fg"]
+[ext_resource type="PackedScene" uid="uid://b0h4y2y4pmpp" path="res://scenes/ui/transparent_panel.tscn" id="1_tch1r"]
+[ext_resource type="Texture2D" uid="uid://c0vn7v7ogot76" path="res://sprites/case_ui.png" id="2_ok4fg"]
+[ext_resource type="FontFile" uid="uid://cn6ofapmvrqv6" path="res://fonts/Tiny5-Regular.ttf" id="3_u7gbv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h022r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4jqwt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kicr4"]
+
+[node name="Notes" type="Control" unique_id=748313566]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ok4fg")
+
+[node name="Panel" parent="." unique_id=1061160677 instance=ExtResource("1_tch1r")]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 12.0
+offset_right = 276.0
+offset_bottom = 168.0
+
+[node name="Page1" type="Sprite2D" parent="." unique_id=130569855]
+position = Vector2(104, 90)
+texture = ExtResource("2_ok4fg")
+
+[node name="Page2" type="Sprite2D" parent="." unique_id=848996065]
+position = Vector2(216, 90)
+texture = ExtResource("2_ok4fg")
+
+[node name="CaseInfo" type="RichTextLabel" parent="." unique_id=1788588292]
+layout_mode = 0
+offset_left = 168.0
+offset_top = 24.0
+offset_right = 264.0
+offset_bottom = 156.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_u7gbv")
+theme_override_fonts/bold_font = ExtResource("3_u7gbv")
+theme_override_fonts/bold_italics_font = ExtResource("3_u7gbv")
+theme_override_fonts/italics_font = ExtResource("3_u7gbv")
+theme_override_fonts/mono_font = ExtResource("3_u7gbv")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+theme_override_font_sizes/bold_italics_font_size = 8
+theme_override_font_sizes/italics_font_size = 8
+theme_override_font_sizes/mono_font_size = 8
+text = "case info"
+
+[node name="UserNotes" type="TextEdit" parent="." unique_id=1312716988]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 24.0
+offset_right = 152.0
+offset_bottom = 156.0
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_readonly_color = Color(0, 0, 0, 0.5019608)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.6)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("3_u7gbv")
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxEmpty_h022r")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4jqwt")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_kicr4")
+placeholder_text = "Take notes here..."
+context_menu_enabled = false
+emoji_menu_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+tab_input_mode = false
+
+[connection signal="text_changed" from="UserNotes" to="." method="_on_user_notes_text_changed"]

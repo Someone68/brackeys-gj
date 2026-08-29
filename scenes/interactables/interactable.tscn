@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dipa6j4s25gfu"]
+
+[ext_resource type="Script" uid="uid://48b1i0nghfwf" path="res://scripts/interactable.gd" id="1_56v82"]
+
+[node name="Interactable" type="StaticBody2D" unique_id=556332728 groups=["interactable"]]
+script = ExtResource("1_56v82")

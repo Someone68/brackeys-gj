@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CaseData" format=3 uid="uid://cmrsliprjhddt"]
+
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_4jlnp"]
+[ext_resource type="Script" uid="uid://cw6sdyrv4xru6" path="res://scripts/court_reaction.gd" id="2_u6hrt"]
+[ext_resource type="Script" uid="uid://cbniqpo87y8k4" path="res://scripts/case_data.gd" id="3_fn1us"]
+
+[resource]
+script = ExtResource("3_fn1us")
+id = "case_2"
+title = "A Horrible Past"
+briefing = "- TYPE: Missing Person/Homicide
+- 3 Confrontations
+- Officer Skry was reported missing around 5 months ago."
+culprit_id = "ace_case2"
+max_confronts = 3
+npcs = Array[ExtResource("1_4jlnp")]([null])
+metadata/_custom_type_script = "uid://cbniqpo87y8k4"
