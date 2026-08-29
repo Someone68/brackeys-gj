@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwr3v3she6unp"
-path="res://.godot/imported/mart-interior.png-37281a8b567b8a8ba0ef3546126507fd.ctex"
+uid="uid://be7isognnamj1"
+path="res://.godot/imported/store-interior-spritesheet.png-612dda627c9ae515211a4d781f635c47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/mart-interior.png"
-dest_files=["res://.godot/imported/mart-interior.png-37281a8b567b8a8ba0ef3546126507fd.ctex"]
+source_file="res://sprites/store-interior-spritesheet.png"
+dest_files=["res://.godot/imported/store-interior-spritesheet.png-612dda627c9ae515211a4d781f635c47.ctex"]
 
 [params]
 
