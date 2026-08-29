@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b24fuue3ri5a"]
+
+[ext_resource type="Texture2D" uid="uid://dv0dy1col7lad" path="res://sprites/court_bg.png" id="1_3wubk"]
+[ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_51qxx"]
+[ext_resource type="Texture2D" uid="uid://biltdjft0r8cg" path="res://sprites/gavel.png" id="3_vnv1o"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1eln1"]
+texture = ExtResource("1_3wubk")
+
+[node name="Court" type="Control" unique_id=542322436]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_51qxx")
+
+[node name="Background" type="Panel" parent="." unique_id=472320660]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 180.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_1eln1")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=612995174]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 24.0
+offset_bottom = 24.0
+texture = ExtResource("3_vnv1o")
+
+[node name="Label" type="Label" parent="." unique_id=293769029]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "TRIAL"
