@@ -7,6 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(64, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roomdoor"]
+size = Vector2(18, 6)
+
 [node name="Room" unique_id=511289127 instance=ExtResource("1_8errg")]
 
 [node name="Floor" parent="." index="0" unique_id=1418905999]
@@ -17,6 +20,9 @@ tile_map_data = PackedByteArray("AAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAADAAgAAAAAAAA
 
 [node name="default" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="0" unique_id=609649644]
 position = Vector2(160, 164)
+
+[node name="room_door" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=609649645]
+position = Vector2(219, 122)
 
 [node name="HouseInterior" type="Sprite2D" parent="." index="4" unique_id=2140929954]
 z_index = -1
@@ -31,3 +37,12 @@ target_spawn = "ms_leaf_entrance"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0" unique_id=534832589]
 position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_1eln1")
+
+[node name="RoomDoor" parent="." index="6" unique_id=1369385184 instance=ExtResource("3_8h4ai")]
+position = Vector2(219, 110)
+target_room = "ms_leafs_room"
+locked_text = "Her room. No reason to go through her things."
+flags_required = Array[String](["leaf_lead"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDoor" index="0" unique_id=534832590]
+shape = SubResource("RectangleShape2D_roomdoor")

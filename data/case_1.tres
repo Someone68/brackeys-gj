@@ -122,10 +122,10 @@ metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
 [resource]
 script = ExtResource("1_case")
 id = "case_1"
-title = "Just need the money"
-briefing = "- TYPE: Drug dealing
+title = "Just Need The Money"
+briefing = "- TYPE: Illegal selling of drugs
 - 4 Confrontations
-- Suspicious items have been exchanged across civilians lately. Find the cause and deliver justice."
+- Narcotics are changing hands somewhere in Leaf City. Find who is selling, and deliver justice."
 culprit_id = "mrken"
 max_confronts = 4
 npcs = Array[ExtResource("2_profile")]([ExtResource("3_fortune_case1"), ExtResource("3_grey_case1"), ExtResource("3_red_case1"), ExtResource("3_robber_case1"), ExtResource("3_msleaf_case1"), ExtResource("3_mrleaf_case1"), ExtResource("3_green_case1"), ExtResource("3_ace_case1"), ExtResource("3_end_case1"), ExtResource("3_jigsaw_case1"), ExtResource("3_mrken_case1")])

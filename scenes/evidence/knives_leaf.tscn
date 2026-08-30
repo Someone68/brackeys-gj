@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="1_case"]
+[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="2_item"]
+[ext_resource type="Texture2D" uid="uid://cnck683q81w4q" path="res://sprites/knives.png" id="3_knives"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leafknives"]
+size = Vector2(11, 11)
+
+[node name="CaseObject" instance=ExtResource("1_case")]
+cases = Array[String](["case_3"])
+
+[node name="EvidenceItem" parent="." index="0" groups=["interactable"] instance=ExtResource("2_item")]
+z_index = 2
+evidence_id = "knives_leaf"
+display_name = "Knives (Leaf house)"
+court_sprite = ExtResource("3_knives")
+pickup_text = Array[String](["Small knives, dropped in the grass behind the houses.", "Too small for a kitchen. Small enough to hide in a sleeve.", "KNIVES was added to your EVIDENCE."])
+
+[node name="Sprite2D" type="Sprite2D" parent="EvidenceItem" index="0"]
+texture = ExtResource("3_knives")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvidenceItem" index="1"]
+shape = SubResource("RectangleShape2D_leafknives")

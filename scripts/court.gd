@@ -254,35 +254,40 @@ func _challenge(c: CourtChallenge) -> void:
 	for res in avail: labels.append(res.label)
 
 	var picked_label: String = await Global.show_choices_paged(labels)
-	var picked: CourtResponse = avail[labels.find(picked_label)]
+	await _apply_response(avail[labels.find(picked_label)], c.speaker)
 
+## pays for one answer and asks whatever the court wants asked after it. a
+## follow-up is a response like any other, so this recurses.
+func _apply_response(res: CourtResponse, speaker: String) -> void:
 	# an answer the player cannot back up is heard out and then thrown out
-	if not picked.proof.is_empty() and not _holds_any(picked.proof):
-		strength += picked.strength_unproven
-		await Global.show_dialog(DialogueUtil.pages(picked.unproven_reply), 0.02, [4.5, 6], true, c.speaker)
+	if not res.proof.is_empty() and not _holds_any(res.proof):
+		strength += res.strength_unproven
+		await Global.show_dialog(DialogueUtil.pages(res.unproven_reply), 0.02, [4.5, 6], true, speaker)
 		return
 
-	strength += picked.strength
-	await Global.show_dialog(DialogueUtil.pages(picked.reply), 0.02, [4.5, 6], true, c.speaker)
+	strength += res.strength
+	if res.reply != "":
+		await Global.show_dialog(DialogueUtil.pages(res.reply), 0.02, [4.5, 6], true, speaker)
 
-	if picked.followup_prompt != "" or not picked.followup_options.is_empty():
-		await Global.show_dialog(DialogueUtil.pages(picked.followup_prompt), 0.02, [4.5, 6], true, c.speaker)
-		if not picked.followup_options.is_empty():
-			await Global.show_choices_paged(picked.followup_options)
-		if picked.followup_reply != "":
-			await Global.show_dialog(DialogueUtil.pages(picked.followup_reply), 0.02, [4.5, 6], true, c.speaker)
+	if not res.followups.is_empty():
+		if res.followup_prompt != "":
+			await Global.show_dialog(DialogueUtil.pages(res.followup_prompt), 0.02, [4.5, 6], true, speaker)
+		var labels: Array[String] = []
+		for f: CourtResponse in res.followups: labels.append(f.label)
+		var picked_label: String = await Global.show_choices_paged(labels)
+		await _apply_response(res.followups[labels.find(picked_label)], speaker)
 
-	if picked.presents_evidence:
+	if res.presents_evidence:
 		var shown := await _present()
-		if shown != "" and picked.accepts.has(shown):
+		if shown != "" and res.accepts.has(shown):
 			strength += 20
 			CaseState.evidence_shown.append(shown)
-			await Global.show_dialog(["The court accepts this."], 0.02, [4.5, 6], true, c.speaker)
+			await Global.show_dialog(["The court accepts this."], 0.02, [4.5, 6], true, speaker)
 		else:
-			strength += picked.strength_wrong
+			strength += res.strength_wrong
 			await Global.show_dialog(
-				[picked.reply_wrong if picked.reply_wrong != "" else "That proves nothing."],
-				0.02, [4.5, 6], true, c.speaker)
+				[res.reply_wrong if res.reply_wrong != "" else "That proves nothing."],
+				0.02, [4.5, 6], true, speaker)
 
 func _present() -> String:
 	var labels: Array[String] = []
@@ -301,6 +306,7 @@ func _present() -> String:
 
 
 func _verdict(correct: bool, convicted: bool) -> void:
+	Audio.play_sfx("verdict")
 	await Global.show_dialog(
 		DialogueUtil.pages(CaseState.current.verdict_guilty if convicted else CaseState.current.verdict_acquit),
 		0.02, [4.5, 6], true, "Judge")

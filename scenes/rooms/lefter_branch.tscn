@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://d6djw1hinpsi" path="res://scenes/npcs/green.tscn" id="4_1vepx"]
 [ext_resource type="PackedScene" uid="uid://dhtraht7v5hv4" path="res://scenes/evidence/blood_splatter_green.tscn" id="6_fk668"]
 [ext_resource type="Resource" uid="uid://cireixd18hmyi" path="res://data/npcs/green_case2.tres" id="case2_green_case2"]
+[ext_resource type="Resource" path="res://data/npcs/green_case3.tres" id="case3_green_case3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(16, 64)
@@ -56,3 +57,8 @@ case = "case_2"
 [node name="CaseObject" parent="." index="8" unique_id=1672865375 instance=ExtResource("6_fk668")]
 z_index = 2
 position = Vector2(239, 209)
+
+[node name="NpcCase3" parent="." index="9" unique_id=780000005 instance=ExtResource("4_1vepx")]
+position = Vector2(184, 235)
+profile = ExtResource("case3_green_case3")
+case = "case_3"

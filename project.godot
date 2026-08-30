@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="brackeys-gj"
+config/name="The Crimes of Leaf City"
 run/main_scene="uid://dog5l40ndxs42"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
@@ -25,6 +25,7 @@ Knowledge="*uid://cy0y5olcpe8qi"
 GameFlow="*uid://bsu8wt55p5tuv"
 Budget="*uid://cot5fqkdutsto"
 DialogueUtil="*uid://c7l73hlk1rpf5"
+Audio="*res://scripts/audio.gd"
 
 [display]
 

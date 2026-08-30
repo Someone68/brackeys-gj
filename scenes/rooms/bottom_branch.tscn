@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cs6wi50faeixw" path="res://scenes/evidence/drugs.tscn" id="5_pemo2"]
 [ext_resource type="PackedScene" uid="uid://bolcl863c52aa" path="res://scenes/evidence/blood_splatter_mart.tscn" id="8_pgjqb"]
 [ext_resource type="Resource" uid="uid://gr8vwel4jpqi" path="res://data/npcs/jigsaw_case2.tres" id="case2_jigsaw_case2"]
+[ext_resource type="Resource" path="res://data/npcs/jigsaw_case3.tres" id="case3_jigsaw_case3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(64, 16)
@@ -101,3 +102,8 @@ case = "case_2"
 [node name="CaseObject2" parent="." index="12" unique_id=856000839 instance=ExtResource("8_pgjqb")]
 z_index = 2
 position = Vector2(488, 384)
+
+[node name="NpcCase3" parent="." index="13" unique_id=780000002 instance=ExtResource("2_48ef8")]
+position = Vector2(156, 352)
+profile = ExtResource("case3_jigsaw_case3")
+case = "case_3"

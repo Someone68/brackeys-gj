@@ -1,0 +1,130 @@
+[gd_scene format=4 uid="uid://d4avb0cimpa3t"]
+
+[ext_resource type="PackedScene" uid="uid://ixbyba55nl48" path="res://scenes/rooms/room.tscn" id="1_8errg"]
+[ext_resource type="Texture2D" uid="uid://cgoatis8fg21p" path="res://sprites/house-interior.png" id="2_5nmtt"]
+[ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_8h4ai"]
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="4_gore"]
+[ext_resource type="Texture2D" uid="uid://cjevr5h84hhxy" path="res://sprites/blood_splatter.png" id="5_blood1"]
+[ext_resource type="Texture2D" uid="uid://bmpxa55a0mwq3" path="res://sprites/blood_splatter2.png" id="6_blood2"]
+[ext_resource type="Texture2D" uid="uid://bs5sohgsk868j" path="res://sprites/blood_splatter3.png" id="7_blood3"]
+[ext_resource type="PackedScene" path="res://scenes/evidence/blood_splatter_leaf.tscn" id="8_leafblood"]
+[ext_resource type="PackedScene" uid="uid://dipa6j4s25gfu" path="res://scenes/interactables/interactable.tscn" id="9_counter"]
+[ext_resource type="Texture2D" uid="uid://berotcp85tkdw" path="res://sprites/killcounter.png" id="10_counter"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+size = Vector2(64, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_counter"]
+size = Vector2(48, 40)
+
+[node name="Room" unique_id=511289127 instance=ExtResource("1_8errg")]
+
+[node name="Floor" parent="." index="0" unique_id=1418905999]
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAQAAAAAAAEAAAADAAQAAAAAAAIAAAADAAQAAAAAAAMAAAADAAQAAAAAAAQAAAADAAQAAAAAAAUAAAADAAQAAAAAAAYAAAADAAQAAAAAAAcAAAADAAQAAAAAAAgAAAADAAQAAAAAAAkAAAADAAQAAAAAAAoAAAADAAQAAAABAAAAAAADAAQAAAABAAEAAAADAAQAAAABAAIAAAADAAQAAAABAAMAAAADAAQAAAABAAQAAAADAAQAAAABAAUAAAADAAQAAAABAAYAAAADAAQAAAABAAcAAAADAAQAAAABAAgAAAADAAQAAAABAAkAAAADAAQAAAABAAoAAAADAAQAAAACAAAAAAADAAQAAAACAAEAAAADAAQAAAACAAIAAAADAAQAAAACAAMAAAADAAQAAAACAAQAAAADAAQAAAACAAUAAAADAAQAAAACAAYAAAADAAQAAAACAAcAAAADAAQAAAACAAgAAAADAAQAAAACAAkAAAADAAQAAAACAAoAAAADAAQAAAADAAAAAAADAAQAAAADAAEAAAADAAQAAAADAAIAAAADAAQAAAADAAMAAAADAAQAAAADAAQAAAADAAQAAAADAAUAAAADAAQAAAADAAYAAAADAAQAAAADAAcAAAADAAQAAAADAAgAAAADAAQAAAADAAkAAAADAAQAAAADAAoAAAADAAQAAAAEAAAAAAADAAQAAAAEAAEAAAADAAQAAAAEAAIAAAADAAQAAAAEAAMAAAADAAQAAAAEAAQAAAADAAQAAAAEAAUAAAADAAQAAAAEAAYAAAADAAQAAAAEAAcAAAADAAQAAAAEAAgAAAADAAQAAAAEAAkAAAADAAQAAAAEAAoAAAADAAQAAAAFAAAAAAADAAQAAAAFAAEAAAADAAQAAAAFAAIAAAADAAQAAAAFAAMAAAADAAQAAAAFAAQAAAADAAQAAAAFAAUAAAADAAQAAAAFAAYAAAADAAQAAAAFAAcAAAADAAQAAAAFAAgAAAADAAQAAAAFAAkAAAADAAQAAAAFAAoAAAADAAQAAAAGAAAAAAADAAQAAAAGAAEAAAADAAQAAAAGAAIAAAADAAQAAAAGAAMAAAADAAQAAAAGAAQAAAADAAQAAAAGAAUAAAADAAQAAAAGAAYAAAADAAQAAAAGAAcAAAADAAQAAAAGAAgAAAADAAQAAAAGAAkAAAADAAQAAAAGAAoAAAADAAQAAAAHAAAAAAADAAQAAAAHAAEAAAADAAQAAAAHAAIAAAADAAQAAAAHAAMAAAADAAQAAAAHAAQAAAADAAQAAAAHAAUAAAADAAQAAAAHAAYAAAADAAQAAAAHAAcAAAADAAQAAAAHAAgAAAADAAQAAAAHAAkAAAADAAQAAAAHAAoAAAADAAQAAAAIAAAAAAADAAQAAAAIAAEAAAADAAQAAAAIAAIAAAADAAQAAAAIAAMAAAADAAQAAAAIAAQAAAADAAQAAAAIAAUAAAADAAQAAAAIAAYAAAADAAQAAAAIAAcAAAADAAQAAAAIAAgAAAADAAQAAAAIAAkAAAADAAQAAAAIAAoAAAADAAQAAAAJAAAAAAADAAQAAAAJAAEAAAADAAQAAAAJAAIAAAADAAQAAAAJAAMAAAADAAQAAAAJAAQAAAADAAQAAAAJAAUAAAADAAQAAAAJAAYAAAADAAQAAAAJAAcAAAADAAQAAAAJAAgAAAADAAQAAAAJAAkAAAADAAQAAAAJAAoAAAADAAQAAAAKAAAAAAADAAQAAAAKAAEAAAADAAQAAAAKAAIAAAADAAQAAAAKAAMAAAADAAQAAAAKAAQAAAADAAQAAAAKAAUAAAADAAQAAAAKAAYAAAADAAQAAAAKAAcAAAADAAQAAAAKAAgAAAADAAQAAAAKAAkAAAADAAQAAAAKAAoAAAADAAQAAAALAAAAAAADAAQAAAALAAEAAAADAAQAAAALAAIAAAADAAQAAAALAAMAAAADAAQAAAALAAQAAAADAAQAAAALAAUAAAADAAQAAAALAAYAAAADAAQAAAALAAcAAAADAAQAAAALAAgAAAADAAQAAAALAAkAAAADAAQAAAALAAoAAAADAAQAAAAMAAAAAAADAAQAAAAMAAEAAAADAAQAAAAMAAIAAAADAAQAAAAMAAMAAAADAAQAAAAMAAQAAAADAAQAAAAMAAUAAAADAAQAAAAMAAYAAAADAAQAAAAMAAcAAAADAAQAAAAMAAgAAAADAAQAAAAMAAkAAAADAAQAAAAMAAoAAAADAAQAAAANAAAAAAADAAQAAAANAAEAAAADAAQAAAANAAIAAAADAAQAAAANAAMAAAADAAQAAAANAAQAAAADAAQAAAANAAUAAAADAAQAAAANAAYAAAADAAQAAAANAAcAAAADAAQAAAANAAgAAAADAAQAAAANAAkAAAADAAQAAAANAAoAAAADAAQAAAAOAAAAAAADAAQAAAAOAAEAAAADAAQAAAAOAAIAAAADAAQAAAAOAAMAAAADAAQAAAAOAAQAAAADAAQAAAAOAAUAAAADAAQAAAAOAAYAAAADAAQAAAAOAAcAAAADAAQAAAAOAAgAAAADAAQAAAAOAAkAAAADAAQAAAAOAAoAAAADAAQAAAAPAAAAAAADAAQAAAAPAAEAAAADAAQAAAAPAAIAAAADAAQAAAAPAAMAAAADAAQAAAAPAAQAAAADAAQAAAAPAAUAAAADAAQAAAAPAAYAAAADAAQAAAAPAAcAAAADAAQAAAAPAAgAAAADAAQAAAAPAAkAAAADAAQAAAAPAAoAAAADAAQAAAAQAAAAAAADAAQAAAAQAAEAAAADAAQAAAAQAAIAAAADAAQAAAAQAAMAAAADAAQAAAAQAAQAAAADAAQAAAAQAAUAAAADAAQAAAAQAAYAAAADAAQAAAAQAAcAAAADAAQAAAAQAAgAAAADAAQAAAAQAAkAAAADAAQAAAAQAAoAAAADAAQAAAARAAAAAAADAAQAAAARAAEAAAADAAQAAAARAAIAAAADAAQAAAARAAMAAAADAAQAAAARAAQAAAADAAQAAAARAAUAAAADAAQAAAARAAYAAAADAAQAAAARAAcAAAADAAQAAAARAAgAAAADAAQAAAARAAkAAAADAAQAAAARAAoAAAADAAQAAAASAAAAAAADAAQAAAASAAEAAAADAAQAAAASAAIAAAADAAQAAAASAAMAAAADAAQAAAASAAQAAAADAAQAAAASAAUAAAADAAQAAAASAAYAAAADAAQAAAASAAcAAAADAAQAAAASAAgAAAADAAQAAAASAAkAAAADAAQAAAASAAoAAAADAAQAAAATAAAAAAADAAQAAAATAAEAAAADAAQAAAATAAIAAAADAAQAAAATAAMAAAADAAQAAAATAAQAAAADAAQAAAATAAUAAAADAAQAAAATAAYAAAADAAQAAAATAAcAAAADAAQAAAATAAgAAAADAAQAAAATAAkAAAADAAQAAAATAAoAAAADAAQAAAA=")
+
+[node name="InvisibleWall" parent="." index="2" unique_id=1533307177]
+tile_map_data = PackedByteArray("AAADAAoAAAAAAAAAAAADAAkAAAAAAAAAAAADAAgAAAAAAAAAAAADAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAAQAAkAAAAAAAAAAAAQAAoAAAAAAAAAAAADAAYAAAAAAAAAAAAEAAYAAAAAAAAAAAAFAAYAAAAAAAAAAAAGAAYAAAAAAAAAAAAHAAYAAAAAAAAAAAAIAAYAAAAAAAAAAAAJAAYAAAAAAAAAAAAKAAYAAAAAAAAAAAALAAYAAAAAAAAAAAAMAAYAAAAAAAAAAAANAAYAAAAAAAAAAAAOAAYAAAAAAAAAAAAPAAYAAAAAAAAAAAAQAAYAAAAAAAAAAAADAAsAAAAAAAAAAAAEAAsAAAAAAAAAAAAFAAsAAAAAAAAAAAAGAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAMAAsAAAAAAAAAAAANAAsAAAAAAAAAAAAOAAsAAAAAAAAAAAAPAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAA=")
+
+[node name="default" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="0" unique_id=609649644]
+position = Vector2(160, 164)
+
+[node name="HouseInterior" type="Sprite2D" parent="." index="4" unique_id=2140929954]
+z_index = -1
+position = Vector2(160, 90)
+texture = ExtResource("2_5nmtt")
+
+[node name="Door" parent="." index="5" unique_id=1369385183 instance=ExtResource("3_8h4ai")]
+position = Vector2(160, 179)
+target_room = "ms_leafs_house"
+target_spawn = "room_door"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0" unique_id=534832589]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_1eln1")
+
+[node name="CaseObject" parent="." index="6" unique_id=770000001 instance=ExtResource("4_gore")]
+z_index = 1
+cases = Array[String](["case_3"])
+
+[node name="Splat0" type="Sprite2D" parent="CaseObject" index="0" unique_id=770001000]
+position = Vector2(88, 152)
+texture = ExtResource("5_blood1")
+
+[node name="Splat1" type="Sprite2D" parent="CaseObject" index="1" unique_id=770001001]
+position = Vector2(80, 76)
+texture = ExtResource("6_blood2")
+
+[node name="Splat2" type="Sprite2D" parent="CaseObject" index="2" unique_id=770001002]
+position = Vector2(116, 76)
+texture = ExtResource("7_blood3")
+
+[node name="Splat3" type="Sprite2D" parent="CaseObject" index="3" unique_id=770001003]
+position = Vector2(188, 144)
+texture = ExtResource("6_blood2")
+
+[node name="Splat4" type="Sprite2D" parent="CaseObject" index="4" unique_id=770001004]
+position = Vector2(120, 144)
+texture = ExtResource("5_blood1")
+
+[node name="Splat5" type="Sprite2D" parent="CaseObject" index="5" unique_id=770001005]
+position = Vector2(236, 84)
+texture = ExtResource("7_blood3")
+
+[node name="Splat6" type="Sprite2D" parent="CaseObject" index="6" unique_id=770001006]
+position = Vector2(236, 136)
+texture = ExtResource("6_blood2")
+
+[node name="Splat7" type="Sprite2D" parent="CaseObject" index="7" unique_id=770001007]
+position = Vector2(76, 92)
+texture = ExtResource("7_blood3")
+
+[node name="Splat8" type="Sprite2D" parent="CaseObject" index="8" unique_id=770001008]
+position = Vector2(132, 84)
+texture = ExtResource("5_blood1")
+
+[node name="Splat9" type="Sprite2D" parent="CaseObject" index="9" unique_id=770001009]
+position = Vector2(140, 92)
+texture = ExtResource("6_blood2")
+
+[node name="Splat10" type="Sprite2D" parent="CaseObject" index="10" unique_id=770001010]
+position = Vector2(176, 106)
+texture = ExtResource("7_blood3")
+
+[node name="Splat11" type="Sprite2D" parent="CaseObject" index="11" unique_id=770001011]
+position = Vector2(224, 92)
+texture = ExtResource("5_blood1")
+
+[node name="Splat12" type="Sprite2D" parent="CaseObject" index="12" unique_id=770001012]
+position = Vector2(246, 108)
+texture = ExtResource("6_blood2")
+
+[node name="Splat13" type="Sprite2D" parent="CaseObject" index="13" unique_id=770001013]
+position = Vector2(88, 132)
+texture = ExtResource("5_blood1")
+
+[node name="Splat14" type="Sprite2D" parent="CaseObject" index="14" unique_id=770001014]
+position = Vector2(96, 136)
+texture = ExtResource("7_blood3")
+
+[node name="Splat15" type="Sprite2D" parent="CaseObject" index="15" unique_id=770001015]
+position = Vector2(200, 132)
+texture = ExtResource("6_blood2")
+
+[node name="Splat16" type="Sprite2D" parent="CaseObject" index="16" unique_id=770001016]
+position = Vector2(216, 152)
+texture = ExtResource("5_blood1")
+
+[node name="KillCounter" parent="CaseObject" index="17" unique_id=770000020 instance=ExtResource("9_counter")]
+position = Vector2(176, 92)
+dialogue = Array[String](["A tally, scratched into the wall in rows of five.", "Under the last row, in a different hand: HELP.", "Somebody counted, and it was not her."])
+
+[node name="Sprite2D" type="Sprite2D" parent="CaseObject/KillCounter" index="0" unique_id=770000021]
+texture = ExtResource("10_counter")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaseObject/KillCounter" index="1" unique_id=770000022]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_counter")
+
+[node name="CaseObject2" parent="." index="7" unique_id=770000002 instance=ExtResource("8_leafblood")]
+z_index = 2
+position = Vector2(160, 120)

@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://u3u64lfmhd2y" path="res://sprites/bar.png" id="3_dgb4l"]
 [ext_resource type="PackedScene" uid="uid://o30xqtcj6xgk" path="res://scenes/npcs/grey.tscn" id="4_bprp3"]
 [ext_resource type="Resource" uid="uid://cbc3blh1w30b6" path="res://data/npcs/grey_case2.tres" id="case2_grey_case2"]
+[ext_resource type="Resource" path="res://data/npcs/grey_case3.tres" id="case3_grey_case3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(16, 48)
@@ -87,3 +88,8 @@ case = "case_1"
 position = Vector2(392, 88)
 profile = ExtResource("case2_grey_case2")
 case = "case_2"
+
+[node name="NpcCase3" parent="." index="10" unique_id=780000004 instance=ExtResource("4_bprp3")]
+position = Vector2(392, 88)
+profile = ExtResource("case3_grey_case3")
+case = "case_3"

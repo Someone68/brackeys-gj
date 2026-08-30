@@ -17,6 +17,20 @@
 [ext_resource type="Resource" path="res://data/npcs/jigsaw_case2.tres" id="3_jigsaw"]
 [ext_resource type="Resource" path="res://data/npcs/mrken_case2.tres" id="3_mrken"]
 
+[sub_resource type="Resource" id="Resource_q2a2f1"]
+script = ExtResource("2_resp")
+label = "The convenience store"
+reply = "The picture taken does not show blood splatter corresponding to what you said. The court thinks this evidence is unreasonable."
+strength = 0
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a2f2"]
+script = ExtResource("2_resp")
+label = "Green's house"
+reply = "The picture taken does not show blood splatter corresponding to what you said. The court thinks this evidence is unreasonable."
+strength = 0
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
 [sub_resource type="Resource" id="Resource_q1a1"]
 script = ExtResource("2_resp")
 label = "There are knives around the bar"
@@ -52,8 +66,7 @@ script = ExtResource("2_resp")
 label = "Blood splatter was on the walls of buildings"
 reply = "The court asks which buildings have this blood splatter."
 strength = -10
-followup_options = Array[String](["The convenience store", "Green's house"])
-followup_reply = "The picture taken does not show blood splatter corresponding to what you said. The court thinks this evidence is unreasonable."
+followups = Array[ExtResource("2_resp")]([SubResource("Resource_q2a2f1"), SubResource("Resource_q2a2f2")])
 metadata/_custom_type_script = "uid://c4najngawgi37"
 
 [sub_resource type="Resource" id="Resource_q2a3"]
@@ -128,10 +141,10 @@ metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
 [resource]
 script = ExtResource("1_case")
 id = "case_2"
-title = "murder lmao"
-briefing = "- TYPE: Missing Person/Homicide
+title = "Last Call"
+briefing = "- TYPE: 1st degree murder
 - 3 Confrontations
-- Officer Skry was reported missing around 5 months ago."
+- A man walked into Leaf City months ago and never walked back out. Somebody here knows why."
 culprit_id = "ace"
 max_confronts = 3
 npcs = Array[ExtResource("2_profile")]([ExtResource("3_fortune"), ExtResource("3_grey"), ExtResource("3_red"), ExtResource("3_robber"), ExtResource("3_msleaf"), ExtResource("3_mrleaf"), ExtResource("3_green"), ExtResource("3_ace"), ExtResource("3_end"), ExtResource("3_jigsaw"), ExtResource("3_mrken")])

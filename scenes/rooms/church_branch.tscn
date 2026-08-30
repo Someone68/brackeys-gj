@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_gq5g7"]
 [ext_resource type="PackedScene" uid="uid://c03ercyl1j7yi" path="res://scenes/npcs/fortune_teller.tscn" id="4_ax5so"]
 [ext_resource type="Resource" path="res://data/npcs/fortune_case2.tres" id="case2_fortune_case2"]
+[ext_resource type="Resource" path="res://data/npcs/fortune_case3.tres" id="case3_fortune_case3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2vi6f"]
 load_path = "res://.godot/imported/house2.png-e26def1d8bdb5fd76abecb18db8f2249.ctex"
@@ -112,3 +113,8 @@ case = "case_1"
 position = Vector2(214, 241)
 profile = ExtResource("case2_fortune_case2")
 case = "case_2"
+
+[node name="NpcCase3" parent="." index="12" unique_id=780000003 instance=ExtResource("4_ax5so")]
+position = Vector2(214, 241)
+profile = ExtResource("case3_fortune_case3")
+case = "case_3"

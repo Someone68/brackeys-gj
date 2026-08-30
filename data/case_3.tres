@@ -1,18 +1,179 @@
 [gd_resource type="Resource" script_class="CaseData" format=3 uid="uid://lsyu81sc3k4v"]
 
-[ext_resource type="Script" uid="uid://cbniqpo87y8k4" path="res://scripts/case_data.gd" id="1_case3"]
-[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_rmh0u"]
-[ext_resource type="Script" uid="uid://cw6sdyrv4xru6" path="res://scripts/court_reaction.gd" id="2_ag8jt"]
+[ext_resource type="Script" uid="uid://cbniqpo87y8k4" path="res://scripts/case_data.gd" id="1_case"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://cw6sdyrv4xru6" path="res://scripts/court_reaction.gd" id="2_react"]
+[ext_resource type="Script" uid="uid://dcojxs76ds362" path="res://scripts/court_challenge.gd" id="2_chal"]
+[ext_resource type="Script" uid="uid://c4najngawgi37" path="res://scripts/court_response.gd" id="2_resp"]
+[ext_resource type="Resource" path="res://data/npcs/fortune_case3.tres" id="3_fortune"]
+[ext_resource type="Resource" path="res://data/npcs/grey_case3.tres" id="3_grey"]
+[ext_resource type="Resource" path="res://data/npcs/red_case3.tres" id="3_red"]
+[ext_resource type="Resource" path="res://data/npcs/robber_case3.tres" id="3_robber"]
+[ext_resource type="Resource" path="res://data/npcs/msleaf_case3.tres" id="3_msleaf"]
+[ext_resource type="Resource" path="res://data/npcs/mrleaf_case3.tres" id="3_mrleaf"]
+[ext_resource type="Resource" path="res://data/npcs/green_case3.tres" id="3_green"]
+[ext_resource type="Resource" path="res://data/npcs/ace_case3.tres" id="3_ace"]
+[ext_resource type="Resource" path="res://data/npcs/end_case3.tres" id="3_end"]
+[ext_resource type="Resource" path="res://data/npcs/jigsaw_case3.tres" id="3_jigsaw"]
+[ext_resource type="Resource" path="res://data/npcs/mrken_case3.tres" id="3_mrken"]
+
+[sub_resource type="Resource" id="Resource_q2a1f1"]
+script = ExtResource("2_resp")
+label = "Bar"
+reply = "These knives do not relate to your evidence."
+strength = -10
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a1f2"]
+script = ExtResource("2_resp")
+label = "Ms. Leaf's house"
+reply = "These knives do relate to your evidence and do show suspicious activity, the court approves."
+strength = 5
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a2f1"]
+script = ExtResource("2_resp")
+label = "Convenience store"
+reply = "The blood splatter does not match the picture taken in your evidence. The court does not approve."
+strength = -10
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a2f2"]
+script = ExtResource("2_resp")
+label = "Ms. Leaf's house"
+reply = "The blood splatter on the walls of Ms Leaf's House are indeed very suspicious. The court likes this reason."
+strength = 5
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a1"]
+script = ExtResource("2_resp")
+label = "There were blood splatter on the walls of different houses"
+reply = "All houses could have some level of blood splatter on them, the court does not like your reason."
+strength = -10
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a2"]
+script = ExtResource("2_resp")
+label = "Trust me bro"
+reply = "The court trusts nobody."
+strength = -15
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a3"]
+script = ExtResource("2_resp")
+label = "Inside Ms Leaf's house is filled with blood splatter"
+proof = Array[String](["blood_splatter_leaf"])
+reply = "Lots of blood splatter inside Ms Leaf's house is indeed very suspicious. The court approves."
+strength = 5
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a4"]
+script = ExtResource("2_resp")
+label = "The people told me to check the right side of the city"
+reply = "There are lots of buildings to the right side of the city, not just Ms Leaf's house. The court disapproves."
+strength = -15
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a1"]
+script = ExtResource("2_resp")
+label = "There were knives spread around some buildings"
+proof = Array[String](["knives_leaf"])
+reply = "Lost knives are spread all around Leaf City, the court thinks that this reason is unreasonable. You will have to explain."
+strength = 0
+followup_prompt = "The court asks where these knives were found."
+followups = Array[ExtResource("2_resp")]([SubResource("Resource_q2a1f1"), SubResource("Resource_q2a1f2")])
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a2"]
+script = ExtResource("2_resp")
+label = "There were blood splatter on buildings"
+proof = Array[String](["blood_splatter_leaf"])
+reply = "The court wants you to explain which building exactly had the blood splatter."
+strength = 0
+followups = Array[ExtResource("2_resp")]([SubResource("Resource_q2a2f1"), SubResource("Resource_q2a2f2")])
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a3"]
+script = ExtResource("2_resp")
+label = "Trust me bro"
+reply = "The court trusts nobody."
+strength = -15
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1"]
+script = ExtResource("2_chal")
+prompt = "The court wants to hear why you have chosen Ms. Leaf for the crime, 2nd degree murder."
+speaker = "Judge"
+responses = Array[ExtResource("2_resp")]([SubResource("Resource_q1a1"), SubResource("Resource_q1a2"), SubResource("Resource_q1a3"), SubResource("Resource_q1a4")])
+metadata/_custom_type_script = "uid://dcojxs76ds362"
+
+[sub_resource type="Resource" id="Resource_q2"]
+script = ExtResource("2_chal")
+prompt = "The court wants to hear why you have chosen this as your evidence."
+speaker = "Judge"
+responses = Array[ExtResource("2_resp")]([SubResource("Resource_q2a1"), SubResource("Resource_q2a2"), SubResource("Resource_q2a3")])
+metadata/_custom_type_script = "uid://dcojxs76ds362"
+
+[sub_resource type="Resource" id="Resource_react_guilty"]
+script = ExtResource("2_react")
+npc_id = "msleaf"
+evidence_id = "*"
+requires_evidence = Array[String](["blood_splatter_leaf", "knives_leaf"])
+accusation_line = "The person you have accused could be guilty, however you must plead your case."
+base_strength = 5
+challenges = Array[ExtResource("2_chal")]([SubResource("Resource_q1"), SubResource("Resource_q2")])
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_blood_only"]
+script = ExtResource("2_react")
+npc_id = "msleaf"
+evidence_id = "*"
+requires_evidence = Array[String](["blood_splatter_leaf"])
+forbids_evidence = Array[String](["knives_leaf"])
+accusation_line = "The court does not have enough evidence to suggest that the person you selected is guilty."
+base_strength = 0
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_knives_only"]
+script = ExtResource("2_react")
+npc_id = "msleaf"
+evidence_id = "*"
+requires_evidence = Array[String](["knives_leaf"])
+forbids_evidence = Array[String](["blood_splatter_leaf"])
+accusation_line = "The court does not have enough evidence to suggest that the person you selected is guilty."
+base_strength = 0
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_leaf_none"]
+script = ExtResource("2_react")
+npc_id = "msleaf"
+evidence_id = "*"
+forbids_evidence = Array[String](["blood_splatter_leaf", "knives_leaf"])
+accusation_line = "The court does not see why the person you selected is guilty."
+base_strength = 0
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_innocent"]
+script = ExtResource("2_react")
+npc_id = "*"
+evidence_id = "*"
+accusation_line = "The court says the person you have accused is innocent."
+base_strength = 0
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
 
 [resource]
-script = ExtResource("1_case3")
+script = ExtResource("1_case")
 id = "case_3"
-title = "5 missing"
-briefing = "- TYPE: Homicide
+title = "Five Missing"
+briefing = "- TYPE: 2nd degree murder
 - 5 Confrontations
-- 5 civilians have gone missing."
+- Five civilians are gone and no bodies have turned up. Someone in this town is not who they seem."
+culprit_id = "msleaf"
 max_confronts = 5
 base_evidence_required = 4
+npcs = Array[ExtResource("2_profile")]([ExtResource("3_fortune"), ExtResource("3_grey"), ExtResource("3_red"), ExtResource("3_robber"), ExtResource("3_msleaf"), ExtResource("3_mrleaf"), ExtResource("3_green"), ExtResource("3_ace"), ExtResource("3_end"), ExtResource("3_jigsaw"), ExtResource("3_mrken")])
+reactions = Array[ExtResource("2_react")]([SubResource("Resource_react_guilty"), SubResource("Resource_react_blood_only"), SubResource("Resource_react_knives_only"), SubResource("Resource_react_leaf_none"), SubResource("Resource_react_innocent")])
+convict_threshold = 15
 verdict_guilty = "PLACEHOLDER guilty verdict."
 verdict_acquit = "PLACEHOLDER acquittal."
 metadata/_custom_type_script = "uid://cbniqpo87y8k4"

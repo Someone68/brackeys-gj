@@ -11,6 +11,11 @@
 [ext_resource type="Resource" path="res://data/npcs/mrleaf_case2.tres" id="case2_mrleaf_case2"]
 [ext_resource type="PackedScene" uid="uid://l3hyq885p27l" path="res://scenes/npcs/msleaf.tscn" id="7_riukk"]
 [ext_resource type="Resource" uid="uid://cnqcb2yt05c20" path="res://data/npcs/msleaf_case2.tres" id="case2_msleaf_case2"]
+[ext_resource type="PackedScene" path="res://scenes/evidence/knives_leaf.tscn" id="9_knives_leaf"]
+[ext_resource type="Resource" path="res://data/npcs/end_case3.tres" id="case3_end_case3"]
+[ext_resource type="Resource" path="res://data/npcs/robber_case3.tres" id="case3_robber_case3"]
+[ext_resource type="Resource" path="res://data/npcs/mrleaf_case3.tres" id="case3_mrleaf_case3"]
+[ext_resource type="Resource" path="res://data/npcs/msleaf_case3.tres" id="case3_msleaf_case3"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cukgv"]
 load_path = "res://.godot/imported/house2.png-e26def1d8bdb5fd76abecb18db8f2249.ctex"
@@ -144,3 +149,27 @@ case = "case_1"
 position = Vector2(124, 128)
 profile = ExtResource("case2_msleaf_case2")
 case = "case_2"
+
+[node name="CaseObjectKnives" parent="." index="19" unique_id=770000010 instance=ExtResource("9_knives_leaf")]
+position = Vector2(212, 62)
+z_index = 2
+
+[node name="NpcCase3" parent="." index="20" unique_id=780000007 instance=ExtResource("4_88xqa")]
+position = Vector2(656, 124)
+profile = ExtResource("case3_end_case3")
+case = "case_3"
+
+[node name="Npc2Case3" parent="." index="21" unique_id=780000008 instance=ExtResource("5_t2v6w")]
+position = Vector2(1028, 157)
+profile = ExtResource("case3_robber_case3")
+case = "case_3"
+
+[node name="Npc3Case3" parent="." index="22" unique_id=780000009 instance=ExtResource("6_vn6s3")]
+position = Vector2(144, 128)
+profile = ExtResource("case3_mrleaf_case3")
+case = "case_3"
+
+[node name="Npc4Case3" parent="." index="23" unique_id=780000010 instance=ExtResource("7_riukk")]
+position = Vector2(124, 128)
+profile = ExtResource("case3_msleaf_case3")
+case = "case_3"

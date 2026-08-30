@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://eaa7r3vnderb"]
+
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://b3wn0k445xjdn" path="res://sprites/En-Piisi _End”.png" id="5_portrait"]
+
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["Murder, in this city? Even 1 person killed is crazy, but multiple?", "I'm not sure I believe that but I did notice that two people went missing from my work. I have no idea where they went."])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Ask about their j*b"
+response = Array[String](["It really is just a j*b, nothing special.", "I just work at a computer all day checking numbers and making stats for other people.", "W*rking at a computer all day is really, really tiring."])
+choice_id = "end_case3_opt1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask who they are"
+response = Array[String](["I mean I really just am a guy working a j*b. I have been noticing a lot of weird things on my commute to w*rk.", "But that's really all I have going for me. My name was literally made to be a homophone for 'NPC'."])
+choice_id = "end_case3_opt2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["Man another tough day at w*rk. It's whatever, so how's your day been?"])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
+npc_id = "end_case3"
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
+
+[resource]
+script = ExtResource("2_profile")
+id = "end"
+display_name = "En Piisi \"End\""
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
+slot_1_response = Array[String]([])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

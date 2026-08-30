@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://swem7x10fpu"]
+
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://bwrmv3fytwqks" path="res://sprites/ms-leaf.png" id="5_portrait"]
+
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["Murder is not something I do, dear."])
+refunds_confront = true
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_confront2"]
+script = ExtResource("1_entry")
+entry_id = "confront2"
+priority = 5
+requires = Array[String](["searched_leaf_room"])
+text = Array[String](["PLEASE I SWEAR I HAVE NOT KILLED ANYONE. I SWEAR. PLEASE. PLEASE I DON'T WANT TO BE ARRESTED, I DON'T WANT TO DIE.", "PLEASE DEAR, PLEASE..."])
+grants = Array[String](["msleaf_broke"])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Step Back"
+response = Array[String](["Honey, where are you going? Are you scared of me? I promise I won't bite."])
+choice_id = "msleaf_case3_opt1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask about who they are"
+response = Array[String](["My name is Ms. Leaf. The wife of our wonderful mayor and founder of Leaf City, Mr. Leaf! He's so handsome."])
+choice_id = "msleaf_case3_opt2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["Oh! Aren't you a cute one! Why don't you get a little closer, honey?"])
+grants = Array[String](["talked_msleaf"])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
+npc_id = "msleaf_case3"
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1"), SubResource("Resource_confront2")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
+
+[resource]
+script = ExtResource("2_profile")
+id = "msleaf"
+display_name = "Ms. Leaf"
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
+slot_1_response = Array[String]([])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

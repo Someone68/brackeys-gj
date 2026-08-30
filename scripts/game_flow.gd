@@ -10,10 +10,19 @@ const SCENES := {
 	State.RESULTS: "res://scenes/ui/results.tscn"
 }
 
+## which track each screen runs under, and how loud. anything not listed is
+## played in silence.
+const MUSIC := {
+	State.TOWN: ["town", 0.7],
+	State.COURT: ["tense", 1.0],
+}
+
 var state: State = State.MENU
 
 func go(next: State) -> void:
 	state = next
+	var track: Array = MUSIC.get(next, ["", 1.0])
+	Audio.play_music(track[0], track[1])
 	get_tree().change_scene_to_file(SCENES[next])
 
 func _process(_delta: float) -> void:
@@ -26,6 +35,7 @@ func _process(_delta: float) -> void:
 				if CaseState.evidence_held.is_empty():
 					await Global.show_dialog(["You haven't collected any evidence yet."])
 					return
+				Audio.play_sfx("starttrial")
 				await Fade.fade_out()
 				GameFlow.go(GameFlow.State.COURT)
 				Fade.fade_in()

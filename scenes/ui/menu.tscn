@@ -2,6 +2,8 @@
 
 [ext_resource type="Theme" uid="uid://d1jevtn8fewrc" path="res://misc/ui_theme.tres" id="1_7w7rl"]
 [ext_resource type="Script" uid="uid://b4mlx0yhodcp5" path="res://scripts/menu.gd" id="2_wedc3"]
+[ext_resource type="Texture2D" uid="uid://bdl1nsja4kteb" path="res://sprites/home_screen.png" id="3_home"]
+[ext_resource type="FontFile" uid="uid://cn6ofapmvrqv6" path="res://fonts/Tiny5-Regular.ttf" id="4_tiny5"]
 
 [node name="Menu" type="Control" unique_id=1731612851]
 layout_mode = 3
@@ -13,12 +15,34 @@ grow_vertical = 2
 theme = ExtResource("1_7w7rl")
 script = ExtResource("2_wedc3")
 
-[node name="Button" type="Button" parent="." unique_id=300340306]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 8.0
-offset_right = 80.0
-offset_bottom = 32.0
-text = "go to case select"
+offset_right = 320.0
+offset_bottom = 180.0
+texture = ExtResource("3_home")
+stretch_mode = 0
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Buttons" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 104.0
+offset_right = 210.0
+offset_bottom = 164.0
+theme_override_constants/separation = 6
+
+[node name="PlayButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_tiny5")
+theme_override_font_sizes/font_size = 14
+text = "Take a Case"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("4_tiny5")
+theme_override_font_sizes/font_size = 14
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

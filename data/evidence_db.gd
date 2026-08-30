@@ -9,6 +9,18 @@ const ITEMS := {
 		"desc": "this is some test evidence",
 		"icon": "res://sprites/scroll_ui.png",
 	},
+	"knives_leaf": {
+		"label": "Knives (Leaf house)",
+		"desc": "Small knives dropped in the grass behind the houses on the right side.",
+		"icon": "res://sprites/knives.png",
+		"implicates": ["msleaf"],
+	},
+	"blood_splatter_leaf": {
+		"label": "Blood splatter (Leaf house)",
+		"desc": "The room behind Ms. Leaf's tidy house is covered in it.",
+		"icon": "res://sprites/blood_splatter.png",
+		"implicates": ["msleaf"],
+	},
 	"knives": {
 		"label": "Knives",
 		"desc": "The bar's knife rack, one knife short.",

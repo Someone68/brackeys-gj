@@ -18,6 +18,7 @@ const ROOMS := {
 	"mart": "res://scenes/rooms/mart.tscn",
 	"mart_back": "res://scenes/rooms/mart_back.tscn",
 	"ms_leafs_house": "res://scenes/rooms/ms_leafs_house.tscn",
+	"ms_leafs_room": "res://scenes/rooms/ms_leafs_room.tscn",
 	"bar": "res://scenes/rooms/bar.tscn",
 	"bar_back": "res://scenes/rooms/bar_back.tscn",
 	"police_station": "res://scenes/rooms/police_station.tscn"

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="4_2wile"]
 [ext_resource type="PackedScene" uid="uid://o0rc10eh4klx" path="res://scenes/evidence/knives.tscn" id="5_knives"]
 [ext_resource type="Resource" uid="uid://bcfpgwy61qgse" path="res://data/npcs/ace_case2.tres" id="case2_ace_case2"]
+[ext_resource type="Resource" path="res://data/npcs/ace_case3.tres" id="case3_ace_case3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(48, 20)
@@ -55,7 +56,7 @@ shape = SubResource("RectangleShape2D_1eln1")
 [node name="BackDoor" parent="." index="8" unique_id=1080917790 instance=ExtResource("4_2wile")]
 position = Vector2(33, 56)
 target_room = "bar_back"
-locked_text = "The back door. No reason to go through it yet."
+locked_text = "The back door. No reason to go through it."
 flags_required = Array[String](["bar_lead"])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BackDoor" index="0" unique_id=1022903456]
@@ -68,3 +69,8 @@ profile = ExtResource("case2_ace_case2")
 [node name="CaseObject" parent="." index="10" unique_id=1672865376 instance=ExtResource("5_knives")]
 z_index = 1
 position = Vector2(186, 85)
+
+[node name="NpcCase3" parent="." index="11" unique_id=780000001 instance=ExtResource("2_m2bdj")]
+position = Vector2(118, 81)
+profile = ExtResource("case3_ace_case3")
+case = "case_3"

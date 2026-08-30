@@ -69,11 +69,13 @@ player; the claim just does not land.
 | "Blood splatter was on the walls of buildings" (-10) | none — see below |
 | both "Trust me bro" | none |
 
-"Blood splatter was on the walls of buildings" is the red-herring answer and uses the new
-follow-up fields: after its reply the court asks which buildings, the player picks "The
-convenience store" or "Green's house", and either way it answers "The picture taken does not
-show blood splatter corresponding to what you said. The court thinks this evidence is
-unreasonable." The -10 is already paid, so the choice is flavour — as the script has it.
+"Blood splatter was on the walls of buildings" is the red-herring answer and uses the follow-up
+field: after its reply the court asks which buildings, the player picks "The convenience store"
+or "Green's house", and either way it answers "The picture taken does not show blood splatter
+corresponding to what you said. The court thinks this evidence is unreasonable." The -10 is
+already paid and neither option pays anything more, so the choice is flavour — as the script has
+it. (Each follow-up is itself a `CourtResponse` now, so case 3 can pay differently per branch;
+see `data/CASE_3_HOLES.md`.)
 
 Court prompts and replies are single strings in the data, and some run past the three lines the
 dialog box shows, so `court.gd` runs them all through `DialogueUtil.pages()`, which breaks a

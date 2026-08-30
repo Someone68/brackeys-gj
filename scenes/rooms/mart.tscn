@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_no3s1"]
 [ext_resource type="PackedScene" uid="uid://bmyjp7nruul62" path="res://scenes/npcs/mrken.tscn" id="4_ignfa"]
 [ext_resource type="Resource" uid="uid://bnutgg3n1abos" path="res://data/npcs/mrken_case2.tres" id="case2_mrken_case2"]
+[ext_resource type="Resource" path="res://data/npcs/mrken_case3.tres" id="case3_mrken_case3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(56, 14)
@@ -60,3 +61,8 @@ shape = SubResource("RectangleShape2D_x3s6g")
 position = Vector2(80, 96)
 profile = ExtResource("case2_mrken_case2")
 case = "case_2"
+
+[node name="NpcCase3" parent="." index="9" unique_id=780000006 instance=ExtResource("4_ignfa")]
+position = Vector2(80, 96)
+profile = ExtResource("case3_mrken_case3")
+case = "case_3"

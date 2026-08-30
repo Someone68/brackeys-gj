@@ -23,6 +23,7 @@ func interact() -> void:
 		await Global.show_dialog(already_text)
 		return
 	CaseState.add_evidence(evidence_id, display_name, court_sprite)
+	Audio.play_sfx("pickup")
 	for e in grants: Knowledge.grant(e)
 	if grants_flag != "":
 		Knowledge.grant(grants_flag)

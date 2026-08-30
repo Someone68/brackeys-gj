@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://d4jjr5wy5rbc2"]
+
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://cc8ch0oq8tywg" path="res://sprites/ace.png" id="5_portrait"]
+
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["2nd degree murder is crazy for a town of this size. I would've never thought we'd have a serial killer in this town.", "I do remember seeing an older woman out at night."])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Ask for a drink"
+response = Array[String](["Ooh, nice choice, one of my personal favs to drink and to make."])
+choice_id = "ace_case3_opt1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask about the bar"
+response = Array[String](["I mean, this place has been in leaf city for who knows how, I just happen to be the bartender, it gets me a lotta cash", "anyways so I'm cool with it."])
+choice_id = "ace_case3_opt2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice3"]
+script = ExtResource("3_choice")
+label = "Ask about their past"
+response = Array[String](["My past? I mean, when I was 10 ish my family was taken away by a gang.", "I was too scared to chase after them, I wish I did. But things happen.", "I've been lonely ever since, but this bar feels like a safe space to me."])
+choice_id = "ace_case3_opt3"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["Welcome to the bar, what would you like on this fine day?"])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2"), SubResource("Resource_choice3")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
+npc_id = "ace_case3"
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
+
+[resource]
+script = ExtResource("2_profile")
+id = "ace"
+display_name = "Ace"
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
+slot_1_response = Array[String]([])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

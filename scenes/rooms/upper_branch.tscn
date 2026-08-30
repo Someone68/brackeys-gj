@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_vafve"]
 [ext_resource type="PackedScene" uid="uid://dhh3hj031tvfw" path="res://scenes/npcs/red.tscn" id="4_nal1s"]
 [ext_resource type="Resource" uid="uid://c67d1s68hmavx" path="res://data/npcs/red_case2.tres" id="case2_red_case2"]
+[ext_resource type="Resource" path="res://data/npcs/red_case3.tres" id="case3_red_case3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(64, 16)
@@ -58,3 +59,8 @@ case = "case_1"
 position = Vector2(352, 256)
 profile = ExtResource("case2_red_case2")
 case = "case_2"
+
+[node name="NpcCase3" parent="." index="9" unique_id=780000011 instance=ExtResource("4_nal1s")]
+position = Vector2(352, 256)
+profile = ExtResource("case3_red_case3")
+case = "case_3"
