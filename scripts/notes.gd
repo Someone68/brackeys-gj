@@ -10,9 +10,8 @@ func init(data: CaseData) -> void:
 ---
 NAME: {0}
 BRIEFING:
-	{1}
+{1}
 """.format([data.title, data.briefing])
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

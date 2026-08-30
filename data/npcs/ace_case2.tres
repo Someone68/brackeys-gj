@@ -1,83 +1,63 @@
 [gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://bcfpgwy61qgse"]
 
-[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_07ao4"]
-[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_ubnsk"]
-[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="2_204co"]
-[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="3_4qyjb"]
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://cc8ch0oq8tywg" path="res://sprites/ace.png" id="5_portrait"]
 
-[sub_resource type="Resource" id="Resource_bb2uj"]
-script = ExtResource("2_204co")
-label = "Around 5 months ago."
-next_id = "1"
-metadata/_custom_type_script = "uid://b8fkciic120yw"
-
-[sub_resource type="Resource" id="Resource_6e7x7"]
-script = ExtResource("1_07ao4")
-forbids = Array[String](["searched_bar_back"])
-text = Array[String](["When were they reported missing?"])
-choices = Array[ExtResource("2_204co")]([SubResource("Resource_bb2uj")])
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["I promise that I've never killed anyone in my life. I promise."])
+refunds_confront = true
 metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
 
-[sub_resource type="Resource" id="Resource_m1dsu"]
-script = ExtResource("1_07ao4")
-entry_id = "1"
-forbids = Array[String](["searched_back"])
-text = Array[String](["... I don't remember anything from around that time.", "Sorry I couldn't be any more help."])
-grants = Array[String](["confronted_ace"])
-metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
-
-[sub_resource type="Resource" id="Resource_f3s3p"]
-script = ExtResource("2_204co")
-label = "Low point or not, criminals deserve justice."
-response = Array[String](["I... you're right. I deserve to be punished. Go on."])
-metadata/_custom_type_script = "uid://b8fkciic120yw"
-
-[sub_resource type="Resource" id="Resource_vjqxd"]
-script = ExtResource("2_204co")
-label = "You killed someone!"
-response = Array[String](["Yes... I did. What I did was completely out of my mind."])
-metadata/_custom_type_script = "uid://b8fkciic120yw"
-
-[sub_resource type="Resource" id="Resource_4qyjb"]
-script = ExtResource("1_07ao4")
+[sub_resource type="Resource" id="Resource_confront2"]
+script = ExtResource("1_entry")
+entry_id = "confront2"
 priority = 5
 requires = Array[String](["searched_back"])
-text = Array[String](["What? You searched...", "WAIT! What did you see? No, it can't be...", "Look. About that missing person... I... It was me.", "I'm sorry. It-...it was a low point--a phase in my life. ", "I didn't know what I was really doing--I swear!"])
+text = Array[String](["Okay, I will be honest, I did kill someone.", "After I was separated from my family and found this job, it didn't feel the same.", "The people I would meet would talk about their families, and I would just stand there.", "At one point there was this one person that I couldn't stand anymore. And I decided to let my rage out on him."])
 grants = Array[String](["ace_admitted"])
-choices = Array[ExtResource("2_204co")]([SubResource("Resource_f3s3p"), SubResource("Resource_vjqxd")])
 metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
 
-[sub_resource type="Resource" id="Resource_07ao4"]
-script = ExtResource("2_204co")
-label = "I'm not looking to drink."
-response = Array[String](["What are you here for then?"])
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Ask about the bar"
+response = Array[String](["I mean, this place has been in leaf city for who knows how, I just happen to be the bartender, it gets me a lotta cash", "anyways so I'm cool with it."])
+choice_id = "ace_case2_opt1"
 metadata/_custom_type_script = "uid://b8fkciic120yw"
 
-[sub_resource type="Resource" id="Resource_7xxqe"]
-script = ExtResource("2_204co")
-label = "I've been investigating this case."
-response = Array[String](["Mind telling me more?"])
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask about their past"
+response = Array[String](["My past? I mean, when I was 10 ish my family was taken away by a gang.", "I was too scared to chase after them, I wish I did. But things happen.", "I've been lonely ever since, but this bar feels like a safe space to me."])
+choice_id = "ace_case2_opt2"
 metadata/_custom_type_script = "uid://b8fkciic120yw"
 
-[sub_resource type="Resource" id="Resource_204co"]
-script = ExtResource("1_07ao4")
-text = Array[String](["Hey, what can I getcha?"])
-choices = Array[ExtResource("2_204co")]([SubResource("Resource_07ao4"), SubResource("Resource_7xxqe")])
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["Welcome to the bar, what would you like on this fine day?"])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2")])
 metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
 
-[sub_resource type="Resource" id="Resource_m6m3t"]
-script = ExtResource("3_4qyjb")
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
 npc_id = "ace_case2"
-idle = Array[ExtResource("1_07ao4")]([SubResource("Resource_204co")])
-confront = Array[ExtResource("1_07ao4")]([SubResource("Resource_6e7x7"), SubResource("Resource_m1dsu"), SubResource("Resource_4qyjb")])
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1"), SubResource("Resource_confront2")])
 metadata/_custom_type_script = "uid://m5h7gpc5npj7"
 
 [resource]
-script = ExtResource("1_ubnsk")
-id = "ace_case2"
+script = ExtResource("2_profile")
+id = "ace"
 display_name = "Ace"
-dialogue = SubResource("Resource_m6m3t")
-confront_options = Array[String](["Gotta go", "Know anything about a missing person?"])
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
 slot_1_response = Array[String]([])
-leave_response = Array[String](["See you later!"])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
 metadata/_custom_type_script = "uid://caoggtt3s6h4k"

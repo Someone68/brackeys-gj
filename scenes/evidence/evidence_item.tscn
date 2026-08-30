@@ -2,5 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bxnatgmltl2fx" path="res://scripts/evidence_item.gd" id="1_nvicl"]
 
-[node name="EvidenceItem" type="Area2D" unique_id=1982682065]
+[node name="EvidenceItem" type="Area2D" unique_id=1982682065 groups=["interactable"]]
+z_index = -1
 script = ExtResource("1_nvicl")

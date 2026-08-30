@@ -10,10 +10,16 @@ const ROOMS := {
 	"town_square": "res://scenes/rooms/town_square.tscn",
 	"upper_branch": "res://scenes/rooms/upper_branch.tscn",
 	"left_branch": "res://scenes/rooms/left_branch.tscn",
+	"lefter_branch": "res://scenes/rooms/lefter_branch.tscn",
 	"bottom_branch": "res://scenes/rooms/bottom_branch.tscn",
 	"right_branch": "res://scenes/rooms/right_branch.tscn",
 	"church_branch": "res://scenes/rooms/church_branch.tscn",
+	"church": "res://scenes/rooms/church.tscn",
+	"mart": "res://scenes/rooms/mart.tscn",
+	"mart_back": "res://scenes/rooms/mart_back.tscn",
+	"ms_leafs_house": "res://scenes/rooms/ms_leafs_house.tscn",
 	"bar": "res://scenes/rooms/bar.tscn",
+	"bar_back": "res://scenes/rooms/bar_back.tscn",
 	"police_station": "res://scenes/rooms/police_station.tscn"
 }
 

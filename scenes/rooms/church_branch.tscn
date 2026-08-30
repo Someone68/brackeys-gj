@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://ixbyba55nl48" path="res://scenes/rooms/room.tscn" id="1_xyhpc"]
 [ext_resource type="Texture2D" uid="uid://c6lsmec6o574k" path="res://sprites/church.png" id="2_2vi6f"]
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_gq5g7"]
+[ext_resource type="PackedScene" uid="uid://c03ercyl1j7yi" path="res://scenes/npcs/fortune_teller.tscn" id="4_ax5so"]
+[ext_resource type="Resource" path="res://data/npcs/fortune_case2.tres" id="case2_fortune_case2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2vi6f"]
 load_path = "res://.godot/imported/house2.png-e26def1d8bdb5fd76abecb18db8f2249.ctex"
@@ -12,6 +14,9 @@ size = Vector2(60, 26)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ax5so"]
+size = Vector2(24, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gq5g7"]
 size = Vector2(16, 64)
@@ -52,10 +57,13 @@ texture = SubResource("CompressedTexture2D_2vi6f")
 position = Vector2(0, -49)
 polygon = PackedVector2Array(-17, 49, -17, 32, -49, 32, -49, 14, -17, 14, -17, 3, 45, 3, 45, 49)
 
-[node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=2113538323]
+[node name="church_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=733968891]
+position = Vector2(72, 128)
+
+[node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=2113538323]
 position = Vector2(-72, 304)
 
-[node name="bottom_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=430520489]
+[node name="bottom_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="3" unique_id=430520489]
 position = Vector2(176, 584)
 
 [node name="Church" type="StaticBody2D" parent="." index="6" unique_id=1518038027]
@@ -79,7 +87,15 @@ target_spawn = "church_entrance"
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_1eln1")
 
-[node name="Door2" parent="." index="8" unique_id=787027592 instance=ExtResource("3_gq5g7")]
+[node name="Door3" parent="." index="8" unique_id=2019032840 instance=ExtResource("3_gq5g7")]
+position = Vector2(72, 120)
+target_room = "church"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3" index="0" unique_id=1493685621]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_ax5so")
+
+[node name="Door2" parent="." index="9" unique_id=787027592 instance=ExtResource("3_gq5g7")]
 position = Vector2(-80, 304)
 target_room = "upper_branch"
 target_spawn = "church_entrance"
@@ -87,3 +103,12 @@ target_spawn = "church_entrance"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0" unique_id=175158040]
 position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_gq5g7")
+
+[node name="Npc" parent="." index="10" unique_id=984430629 instance=ExtResource("4_ax5so")]
+position = Vector2(214, 241)
+case = "case_1"
+
+[node name="NpcCase2" parent="." index="11" unique_id=700000003 instance=ExtResource("4_ax5so")]
+position = Vector2(214, 241)
+profile = ExtResource("case2_fortune_case2")
+case = "case_2"

@@ -9,3 +9,6 @@ class_name DialogueEntry extends Resource
 @export var choices: Array[DialogueChoice] = []
 @export var next_id: String
 @export var once: bool = false
+## gives the spent confrontation point back when this entry is shown.
+## for NPCs whose confront costs the player nothing (see Grey, case 1).
+@export var refunds_confront: bool = false

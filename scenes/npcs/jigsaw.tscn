@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8kagq8ug0lf1"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_42fla"]
+[ext_resource type="Resource" uid="uid://bk3v6dpremhpm" path="res://data/npcs/jigsaw_case1.tres" id="2_e7u8b"]
+[ext_resource type="Texture2D" uid="uid://1mjwf5dt27r1" path="res://sprites/jigsaw.png" id="3_4t686"]
+
+[node name="Npc" unique_id=984430629 instance=ExtResource("1_42fla")]
+profile = ExtResource("2_e7u8b")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1662044589]
+texture = ExtResource("3_4t686")

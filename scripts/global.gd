@@ -20,3 +20,20 @@ func show_choices(choices: Array[String], default : int = 0, root := NodePath("R
 		root_node = get_tree().current_scene
 	root_node.add_child(picker)
 	return await picker.activate(choices, default)
+
+## the choice picker only has room for 4 entries, so anything longer is split
+## into pages with a "More..." entry that cycles to the next one.
+func show_choices_paged(choices: Array[String], page_size: int = 3, default: int = 0, root := NodePath("Root")):
+	if choices.size() <= 4:
+		return await show_choices(choices, default, root)
+	var pages := ceili(float(choices.size()) / page_size)
+	var page := 0
+	while true:
+		var start := page * page_size
+		var slice: Array[String] = choices.slice(start, mini(start + page_size, choices.size()))
+		slice.append("More...")
+		var r: String = await show_choices(slice, 0, root)
+		if r != "More...":
+			return r
+		page = wrapi(page + 1, 0, pages)
+	return ""

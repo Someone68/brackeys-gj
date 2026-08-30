@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://o0rc10eh4klx"]
+
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="1_case"]
+[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="2_item"]
+[ext_resource type="Texture2D" uid="uid://cnck683q81w4q" path="res://sprites/knives.png" id="3_knives"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_knives"]
+size = Vector2(11, 10.5)
+
+[node name="CaseObject" unique_id=2104594207 instance=ExtResource("1_case")]
+cases = Array[String](["case_2"])
+
+[node name="EvidenceItem" parent="." index="0" unique_id=348790780 instance=ExtResource("2_item")]
+evidence_id = "knives"
+display_name = "Knives"
+court_sprite = ExtResource("3_knives")
+pickup_text = Array[String](["A set of bar knives. One of them is missing.", "You take a picture of the rack.", "KNIVES was added to your EVIDENCE."])
+
+[node name="Sprite2D" type="Sprite2D" parent="EvidenceItem" index="0" unique_id=32714021]
+position = Vector2(0, 5)
+texture = ExtResource("3_knives")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvidenceItem" index="1" unique_id=1788402698]
+position = Vector2(0, 5.25)
+shape = SubResource("RectangleShape2D_knives")

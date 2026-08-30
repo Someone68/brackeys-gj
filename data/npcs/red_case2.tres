@@ -1,9 +1,54 @@
 [gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://c67d1s68hmavx"]
 
-[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_2xuug"]
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://dl1gqfvy3wrcf" path="res://sprites/officer_red.png" id="5_portrait"]
+
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["Murder? That's serious. You should probably check near the buildings.", "Some people like doing suspicious stuff behind them."])
+grants = Array[String](["bar_lead"])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Ask about their status"
+response = Array[String](["Can't you see? I am the Lead Officer of Leaf City. I practically protect the whole place from all crime.", "But that still doesn't stop some people from slipping through the cracks."])
+choice_id = "red_case2_opt1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask about their past"
+response = Array[String](["I mean, I couldn't tell you the last time I wasn't protecting the city from all crime. I mean, crazy stuff happens here.", "Bank robberies, Illegal selling of weapons, and even killing. Someone has to keep the streets safe."])
+choice_id = "red_case2_opt2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["I'm ready for anything anywhere, just tell me what you need."])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
+npc_id = "red_case2"
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
 
 [resource]
-script = ExtResource("1_2xuug")
-id = "red_case2"
-display_name = "Red"
+script = ExtResource("2_profile")
+id = "red"
+display_name = "Officer Red"
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
+slot_1_response = Array[String]([])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
 metadata/_custom_type_script = "uid://caoggtt3s6h4k"

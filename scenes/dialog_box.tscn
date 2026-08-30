@@ -52,7 +52,7 @@ visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 91.0
-offset_right = 104.0
+offset_right = 160.0
 offset_bottom = 107.0
 
 [node name="Label" type="Label" parent="Control/TitlePanel" unique_id=1246075216]

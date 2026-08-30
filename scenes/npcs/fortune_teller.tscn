@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c03ercyl1j7yi"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_ocmad"]
+[ext_resource type="Texture2D" uid="uid://c87k3qmwekhxd" path="res://sprites/fortune_teller.png" id="2_byvkw"]
+[ext_resource type="Resource" uid="uid://c1hpo23cjga0f" path="res://data/npcs/fortune_case1.tres" id="2_w5fvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5fvi"]
+size = Vector2(14, 7)
+
+[node name="Npc" unique_id=984430629 instance=ExtResource("1_ocmad")]
+profile = ExtResource("2_w5fvi")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1662044589]
+position = Vector2(1, -15)
+texture = ExtResource("2_byvkw")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1444912055]
+position = Vector2(1, -3.5)
+shape = SubResource("RectangleShape2D_w5fvi")

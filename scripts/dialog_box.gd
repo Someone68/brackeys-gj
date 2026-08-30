@@ -8,6 +8,7 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func show_dialog(dialogue: Array, speed: float = 0.01, pause_multipliers := [2.5, 3], wait_for_input := true, title := ""):
+	if dialogue.is_empty(): return
 	if (Global.dialog_visible):
 		while Global.dialog_visible:
 			await get_tree().process_frame

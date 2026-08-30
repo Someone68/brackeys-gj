@@ -1,41 +1,15 @@
 [gd_scene format=3 uid="uid://c883hage6mlwo"]
 
 [ext_resource type="Script" uid="uid://ddakf7wd2hyrv" path="res://scripts/npc.gd" id="1_ivh6b"]
+[ext_resource type="Resource" uid="uid://nr1oc0yjudun" path="res://data/npcs/end_case1.tres" id="2_5ejjj"]
 [ext_resource type="Texture2D" uid="uid://bb63atv6fi323" path="res://sprites/mrKen.png" id="2_m5fb5"]
-[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="2_tl5bd"]
-[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_ua7fl"]
-[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_1uxhp"]
-[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="5_myfjo"]
-
-[sub_resource type="Resource" id="Resource_tl5bd"]
-script = ExtResource("2_tl5bd")
-text = Array[String](["confront dialogue"])
-metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
-
-[sub_resource type="Resource" id="Resource_ua7fl"]
-script = ExtResource("2_tl5bd")
-text = Array[String](["idle dialogue"])
-metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
-
-[sub_resource type="Resource" id="Resource_uit3j"]
-script = ExtResource("4_1uxhp")
-idle = Array[ExtResource("2_tl5bd")]([SubResource("Resource_ua7fl")])
-confront = Array[ExtResource("2_tl5bd")]([SubResource("Resource_tl5bd")])
-metadata/_custom_type_script = "uid://m5h7gpc5npj7"
-
-[sub_resource type="Resource" id="Resource_p1a37"]
-script = ExtResource("5_myfjo")
-id = "test_npc"
-display_name = "Test NPC"
-dialogue = SubResource("Resource_uit3j")
-metadata/_custom_type_script = "uid://caoggtt3s6h4k"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(12, 7)
 
 [node name="Npc" type="StaticBody2D" unique_id=984430629 groups=["interactable"]]
 script = ExtResource("1_ivh6b")
-profile = SubResource("Resource_p1a37")
+profile = ExtResource("2_5ejjj")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1662044589]
 position = Vector2(-1, -16)

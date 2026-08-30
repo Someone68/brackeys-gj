@@ -3,12 +3,23 @@
 [ext_resource type="PackedScene" uid="uid://ixbyba55nl48" path="res://scenes/rooms/room.tscn" id="1_g35v8"]
 [ext_resource type="Texture2D" uid="uid://y3mukov45dlr" path="res://sprites/house2.png" id="2_rtf37"]
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_cukgv"]
+[ext_resource type="PackedScene" uid="uid://c6t7wbvk4s40x" path="res://scenes/npcs/end.tscn" id="4_88xqa"]
+[ext_resource type="PackedScene" uid="uid://sc21cqaxocf1" path="res://scenes/npcs/robber.tscn" id="5_t2v6w"]
+[ext_resource type="PackedScene" uid="uid://mdehqi5aiaq8" path="res://scenes/npcs/mrleaf.tscn" id="6_vn6s3"]
+[ext_resource type="Resource" uid="uid://usjc4v50tivl" path="res://data/npcs/end_case2.tres" id="case2_end_case2"]
+[ext_resource type="Resource" uid="uid://citr4xdt4on18" path="res://data/npcs/robber_case2.tres" id="case2_robber_case2"]
+[ext_resource type="Resource" path="res://data/npcs/mrleaf_case2.tres" id="case2_mrleaf_case2"]
+[ext_resource type="PackedScene" uid="uid://l3hyq885p27l" path="res://scenes/npcs/msleaf.tscn" id="7_riukk"]
+[ext_resource type="Resource" uid="uid://cnqcb2yt05c20" path="res://data/npcs/msleaf_case2.tres" id="case2_msleaf_case2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cukgv"]
 load_path = "res://.godot/imported/house2.png-e26def1d8bdb5fd76abecb18db8f2249.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(16, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88xqa"]
+size = Vector2(36, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cukgv"]
 size = Vector2(64, 16)
@@ -24,10 +35,13 @@ tile_map_data = PackedByteArray("AAAVAAYAAAAAAAAAAAAZAAQAAAABAAAAAAAcAAYAAAACAAA
 [node name="InvisibleWall" parent="." index="2" unique_id=1533307177]
 tile_map_data = PackedByteArray("AAD//wcAAAAAAAAAAAD//wYAAAAAAAAAAAD//wUAAAAAAAAAAAD//wQAAAAAAAAAAAD//wMAAAAAAAAAAAD//wIAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAAMAP//AAAAAAAAAAANAP//AAAAAAAAAAAOAP//AAAAAAAAAAAPAP//AAAAAAAAAAAQAP//AAAAAAAAAAARAP//AAAAAAAAAAASAP//AAAAAAAAAAATAP//AAAAAAAAAAAUAP//AAAAAAAAAAAVAP//AAAAAAAAAAAWAP//AAAAAAAAAAAXAP//AAAAAAAAAAAYAP//AAAAAAAAAAAZAP//AAAAAAAAAAAaAP//AAAAAAAAAAAbAP//AAAAAAAAAAAcAP//AAAAAAAAAAAdAP//AAAAAAAAAAAeAP//AAAAAAAAAAAfAP//AAAAAAAAAAAgAP//AAAAAAAAAAAhAP//AAAAAAAAAAAiAP//AAAAAAAAAAAjAP//AAAAAAAAAAAjABIAAAAAAAAAAAAiABIAAAAAAAAAAAAhABIAAAAAAAAAAAAgABIAAAAAAAAAAAAfABIAAAAAAAAAAAAeABIAAAAAAAAAAAAdABIAAAAAAAAAAAAcABIAAAAAAAAAAAAbABIAAAAAAAAAAAAaABIAAAAAAAAAAAAZABIAAAAAAAAAAAAYABIAAAAAAAAAAAAXABIAAAAAAAAAAAAWABIAAAAAAAAAAAAVABIAAAAAAAAAAAAUABIAAAAAAAAAAAATABIAAAAAAAAAAAASABIAAAAAAAAAAAARABIAAAAAAAAAAAAQABIAAAAAAAAAAAAPABIAAAAAAAAAAAAOABIAAAAAAAAAAAANABIAAAAAAAAAAAAMABIAAAAAAAAAAAALABIAAAAAAAAAAAAKABIAAAAAAAAAAAAJABIAAAAAAAAAAAAIABIAAAAAAAAAAAAHABIAAAAAAAAAAAAGABIAAAAAAAAAAAAFABIAAAAAAAAAAAAEABIAAAAAAAAAAAADABIAAAAAAAAAAAACABIAAAAAAAAAAAABABIAAAAAAAAAAAAAABIAAAAAAAAAAAD//xIAAAAAAAAAAAD//xEAAAAAAAAAAAD//xAAAAAAAAAAAAD//w8AAAAAAAAAAAD//w4AAAAAAAAAAAD//w0AAAAAAAAAAAD//wwAAAAAAAAAAAD//wsAAAAAAAAAAAAkABIAAAAAAAAAAAAlABIAAAAAAAAAAAAmABIAAAAAAAAAAAAnABIAAAAAAAAAAAAoABIAAAAAAAAAAAApABIAAAAAAAAAAAAqABIAAAAAAAAAAAArABIAAAAAAAAAAAAsABIAAAAAAAAAAAAtABIAAAAAAAAAAAAuABIAAAAAAAAAAAAvABIAAAAAAAAAAAAwABIAAAAAAAAAAAAxABIAAAAAAAAAAAAyABIAAAAAAAAAAAAzABIAAAAAAAAAAAA0ABIAAAAAAAAAAAA1ABIAAAAAAAAAAAA2ABIAAAAAAAAAAAA3ABIAAAAAAAAAAAA4ABIAAAAAAAAAAAA5ABIAAAAAAAAAAAA6ABIAAAAAAAAAAAA7ABIAAAAAAAAAAAA8ABIAAAAAAAAAAAA9ABIAAAAAAAAAAAA+ABIAAAAAAAAAAAA/ABIAAAAAAAAAAABAABIAAAAAAAAAAABBABIAAAAAAAAAAABBABEAAAAAAAAAAABBABAAAAAAAAAAAABBAA8AAAAAAAAAAABBAA4AAAAAAAAAAABBAA0AAAAAAAAAAABBAAwAAAAAAAAAAABBAAsAAAAAAAAAAABBAAYAAAAAAAAAAABBAAUAAAAAAAAAAABBAAQAAAAAAAAAAABBAAMAAAAAAAAAAABBAAIAAAAAAAAAAABBAAEAAAAAAAAAAABBAAAAAAAAAAAAAABBAP//AAAAAAAAAABAAP//AAAAAAAAAAA/AP//AAAAAAAAAAA+AP//AAAAAAAAAAA9AP//AAAAAAAAAAA8AP//AAAAAAAAAAA7AP//AAAAAAAAAAA6AP//AAAAAAAAAAA5AP//AAAAAAAAAAA4AP//AAAAAAAAAAA3AP//AAAAAAAAAAA2AP//AAAAAAAAAAA1AP//AAAAAAAAAAA0AP//AAAAAAAAAAAzAP//AAAAAAAAAAAyAP//AAAAAAAAAAAxAP//AAAAAAAAAAAwAP//AAAAAAAAAAAvAP//AAAAAAAAAAAuAP//AAAAAAAAAAAtAP//AAAAAAAAAAAoAP//AAAAAAAAAAAnAP//AAAAAAAAAAAmAP//AAAAAAAAAAAlAP//AAAAAAAAAAAkAP//AAAAAAAAAAAoAAEAAAAAAAAAAAAoAAAAAAAAAAAAAAAoAAIAAAAAAAAAAABBAAcAAAAAAAAAAABBAAgAAAAAAAAAAABBAAkAAAAAAAAAAABBAAoAAAAAAAAAAAA=")
 
-[node name="church_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=1538724834]
+[node name="ms_leaf_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=910497403]
+position = Vector2(292, 136)
+
+[node name="church_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=1538724834]
 position = Vector2(688, 8)
 
-[node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=1961573130]
+[node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="3" unique_id=1961573130]
 position = Vector2(12, 152)
 
 [node name="House" type="StaticBody2D" parent="." index="4" unique_id=108518124]
@@ -76,7 +90,17 @@ target_spawn = "right_entrance"
 position = Vector2(-8, 0)
 shape = SubResource("RectangleShape2D_1eln1")
 
-[node name="Door2" parent="." index="8" unique_id=920594607 instance=ExtResource("3_cukgv")]
+[node name="Door3" parent="." index="8" unique_id=564695894 instance=ExtResource("3_cukgv")]
+position = Vector2(292, 120)
+target_room = "ms_leafs_house"
+locked_text = "You can't enter a citizen's house without reason."
+flags_required = Array[String](["can_enter_leafs_house"])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3" index="0" unique_id=1744705378]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_88xqa")
+
+[node name="Door2" parent="." index="9" unique_id=920594607 instance=ExtResource("3_cukgv")]
 position = Vector2(688, 0)
 target_room = "church_branch"
 target_spawn = "bottom_entrance"
@@ -84,3 +108,39 @@ target_spawn = "bottom_entrance"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0" unique_id=1784131083]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_cukgv")
+
+[node name="Npc" parent="." index="10" unique_id=984430629 instance=ExtResource("4_88xqa")]
+position = Vector2(656, 124)
+case = "case_1"
+
+[node name="Npc2" parent="." index="11" unique_id=313868601 instance=ExtResource("5_t2v6w")]
+position = Vector2(1028, 157)
+case = "case_1"
+
+[node name="Npc3" parent="." index="12" unique_id=844964866 instance=ExtResource("6_vn6s3")]
+position = Vector2(144, 128)
+case = "case_1"
+
+[node name="NpcCase2" parent="." index="14" unique_id=700000008 instance=ExtResource("4_88xqa")]
+position = Vector2(656, 124)
+profile = ExtResource("case2_end_case2")
+case = "case_2"
+
+[node name="Npc2Case2" parent="." index="15" unique_id=700000009 instance=ExtResource("5_t2v6w")]
+position = Vector2(1028, 157)
+profile = ExtResource("case2_robber_case2")
+case = "case_2"
+
+[node name="Npc3Case2" parent="." index="16" unique_id=700000010 instance=ExtResource("6_vn6s3")]
+position = Vector2(144, 128)
+profile = ExtResource("case2_mrleaf_case2")
+case = "case_2"
+
+[node name="Npc4" parent="." index="17" unique_id=1266216999 instance=ExtResource("7_riukk")]
+position = Vector2(124, 128)
+case = "case_1"
+
+[node name="Npc4Case2" parent="." index="18" unique_id=700000011 instance=ExtResource("7_riukk")]
+position = Vector2(124, 128)
+profile = ExtResource("case2_msleaf_case2")
+case = "case_2"

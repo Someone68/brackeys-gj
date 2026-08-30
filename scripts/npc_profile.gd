@@ -2,6 +2,8 @@ class_name NPCProfile extends Resource
 
 @export var id: String
 @export var display_name: String
+## portrait shown in the court accusation selector.
+@export var portrait: Texture2D
 @export var dialogue: NPCDialogue
 
 ## options that the player has to confront the NPC.

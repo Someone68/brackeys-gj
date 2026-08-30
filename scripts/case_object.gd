@@ -8,3 +8,4 @@ extends Node2D
 func _ready():
 	if (CaseState.current.id not in cases):
 		queue_free()
+	

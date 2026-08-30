@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bcln6xq5qs6ng"]
+
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="1_ckldb"]
+[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="2_bq08m"]
+[ext_resource type="Texture2D" uid="uid://cjjwolhoqguj2" path="res://sprites/drugs_money.png" id="3_gm341"]
+[ext_resource type="Texture2D" uid="uid://c7nxt6hqyajov" path="res://sprites/drugs2.png" id="4_4in8e"]
+[ext_resource type="Texture2D" uid="uid://p88kdq0rgt31" path="res://sprites/money.png" id="5_3q7w4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+size = Vector2(51, 25)
+
+[node name="CaseObject" unique_id=1672865375 instance=ExtResource("1_ckldb")]
+cases = Array[String](["case_1"])
+
+[node name="EvidenceItem" parent="." index="0" unique_id=1982682065 instance=ExtResource("2_bq08m")]
+evidence_id = "drugs_and_money"
+display_name = "Drugs and money"
+court_sprite = ExtResource("3_gm341")
+pickup_text = Array[String](["It's some narcotics, and some money. Very suspicious.", "You collect the evidence.", "DRUGS AND MONEY was added to your EVIDENCE."])
+grants = Array[String](["searched_store_back"])
+
+[node name="Sprite2D" type="Sprite2D" parent="EvidenceItem" index="0" unique_id=1510745924]
+texture = ExtResource("4_4in8e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="EvidenceItem" index="1" unique_id=1623125471]
+position = Vector2(26, -9)
+texture = ExtResource("5_3q7w4")
+
+[node name="Sprite2D3" type="Sprite2D" parent="EvidenceItem" index="2" unique_id=2063524405]
+position = Vector2(29, -7)
+texture = ExtResource("5_3q7w4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="EvidenceItem" index="3" unique_id=1614717962]
+position = Vector2(22, -5)
+texture = ExtResource("5_3q7w4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvidenceItem" index="4" unique_id=117012535]
+position = Vector2(14.5, -1.5)
+shape = SubResource("RectangleShape2D_1eln1")

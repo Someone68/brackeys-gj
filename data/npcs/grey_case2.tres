@@ -1,9 +1,54 @@
 [gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://cbc3blh1w30b6"]
 
-[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_l68pe"]
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://rhhf8wx8utf1" path="res://sprites/gray.png" id="5_portrait"]
+
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["Murder is not up my alley. But if I do catch people doing it, I'll tell you."])
+refunds_confront = true
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Ask about their past"
+response = Array[String](["My past? Oh I could tell you all about it. But that's personal, I'm not tellin' ya anything."])
+choice_id = "grey_case2_opt1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask about their day"
+response = Array[String](["Same ol', Same ol', I've been stuck on this grass forever now, maybe I will find a job some day.", "Maybe I'll be stuck here forever, who really knows."])
+choice_id = "grey_case2_opt2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["Err, what do you want with somebody like me?"])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
+npc_id = "grey_case2"
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
 
 [resource]
-script = ExtResource("1_l68pe")
-id = "grey_case2"
+script = ExtResource("2_profile")
+id = "grey"
 display_name = "Grey"
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
+slot_1_response = Array[String]([])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
 metadata/_custom_type_script = "uid://caoggtt3s6h4k"

@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://7taokxl0mcy"]
+
+[ext_resource type="Script" uid="uid://2xpfbhvgjpkl" path="res://scripts/dialogue_entry.gd" id="1_entry"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://b8fkciic120yw" path="res://scripts/dialogue_choice.gd" id="3_choice"]
+[ext_resource type="Script" uid="uid://m5h7gpc5npj7" path="res://scripts/npc_dialogue.gd" id="4_dialogue"]
+[ext_resource type="Texture2D" uid="uid://4xoxiw75vyem" path="res://sprites/mr-leaf.png" id="5_portrait"]
+
+[sub_resource type="Resource" id="Resource_confront1"]
+script = ExtResource("1_entry")
+entry_id = "confront1"
+text = Array[String](["Talks of drugs? I promise I'm not part of that stuff. But that is quite concerning.", "If you need, talk to our lead Officer, Officer Red. She can do anything.", "I have heard talks about illegal selling of some sort near the convenience store. Maybe check there."])
+grants = Array[String](["mart_lead"])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_choice1"]
+script = ExtResource("3_choice")
+label = "Ask about the place"
+response = Array[String](["This is Leaf City, a wonderful place, filled to the brim with passion and spirit.", "To the left you'll find our local bank, on the other side of the street you'll find me and my lovely wife's house.", "To the north you will find our city police station and church.", "And to the south you will find our amazing convenience store runned by Mr. Ken."])
+grants = Array[String](["can_enter_leafs_house"])
+choice_id = "mrleaf_case1_opt1"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice2"]
+script = ExtResource("3_choice")
+label = "Ask who they are"
+response = Array[String](["I am the mayor of Leaf City. A while back, I found this patch of beautiful land and claimed it as mine.", "After that, everything just happened, and now we're here, in this beautiful city named after me and my wife."])
+choice_id = "mrleaf_case1_opt2"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_choice3"]
+script = ExtResource("3_choice")
+label = "Ask about their wife"
+requires = Array[String](["talked_msleaf"])
+response = Array[String](["My wife? She's uh… A whole lot of things, beautiful, wonderful, amazing, and most of all, kind.", "She represents what it means to live in Leaf City."])
+choice_id = "mrleaf_case1_opt3"
+metadata/_custom_type_script = "uid://b8fkciic120yw"
+
+[sub_resource type="Resource" id="Resource_idle"]
+script = ExtResource("1_entry")
+entry_id = "idle"
+text = Array[String](["Hey, you look new here. Would you like a look around?"])
+choices = Array[ExtResource("3_choice")]([SubResource("Resource_choice1"), SubResource("Resource_choice2"), SubResource("Resource_choice3")])
+metadata/_custom_type_script = "uid://2xpfbhvgjpkl"
+
+[sub_resource type="Resource" id="Resource_dialogue"]
+script = ExtResource("4_dialogue")
+npc_id = "mrleaf_case1"
+idle = Array[ExtResource("1_entry")]([SubResource("Resource_idle")])
+confront = Array[ExtResource("1_entry")]([SubResource("Resource_confront1")])
+metadata/_custom_type_script = "uid://m5h7gpc5npj7"
+
+[resource]
+script = ExtResource("2_profile")
+id = "mrleaf"
+display_name = "Mr. Leaf"
+portrait = ExtResource("5_portrait")
+dialogue = SubResource("Resource_dialogue")
+confront_options = Array[String](["See ya later", "Confront"])
+slot_1_response = Array[String]([])
+slot_2_response = Array[String]([])
+leave_response = Array[String]([])
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

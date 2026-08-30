@@ -12,5 +12,9 @@ class_name CaseData extends Resource
 @export var reactions: Array[CourtReaction] = []
 @export var fallback_reaction: CourtReaction
 @export var convict_threshold: int = 60
+## what the judge says before asking for the second piece of evidence. asked on
+## every accusation, right or wrong, so the case only closes once the player
+## cannot tie the accused to the crime.
+@export_multiline var second_evidence_prompt: String = "The court asks for a second piece of evidence connecting the accused to the crime."
 @export_multiline var verdict_guilty: String
 @export_multiline var verdict_acquit: String

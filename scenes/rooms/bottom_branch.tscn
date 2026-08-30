@@ -1,12 +1,19 @@
 [gd_scene format=4 uid="uid://bxeqi4m0eupca"]
 
 [ext_resource type="PackedScene" uid="uid://ixbyba55nl48" path="res://scenes/rooms/room.tscn" id="1_6ggi3"]
+[ext_resource type="PackedScene" uid="uid://c8kagq8ug0lf1" path="res://scenes/npcs/jigsaw.tscn" id="2_48ef8"]
 [ext_resource type="Texture2D" uid="uid://qqyp6pb1jn4q" path="res://sprites/gas+mart.png" id="2_c5irt"]
 [ext_resource type="PackedScene" uid="uid://nb8ntn0xjipd" path="res://scenes/door.tscn" id="3_jgp8a"]
 [ext_resource type="Texture2D" uid="uid://y3mukov45dlr" path="res://sprites/house2.png" id="4_yph4d"]
+[ext_resource type="PackedScene" uid="uid://cs6wi50faeixw" path="res://scenes/evidence/drugs.tscn" id="5_pemo2"]
+[ext_resource type="PackedScene" uid="uid://bolcl863c52aa" path="res://scenes/evidence/blood_splatter_mart.tscn" id="8_pgjqb"]
+[ext_resource type="Resource" uid="uid://gr8vwel4jpqi" path="res://data/npcs/jigsaw_case2.tres" id="case2_jigsaw_case2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
 size = Vector2(64, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pemo2"]
+size = Vector2(36, 20)
 
 [node name="Room" unique_id=511289127 instance=ExtResource("1_6ggi3")]
 
@@ -16,10 +23,17 @@ tile_map_data = PackedByteArray("AAATAAwAAAACAAAAAAATAAsAAAACAAAAAAATAAoAAAACAAA
 [node name="Walls" parent="." index="1" unique_id=946216624]
 tile_map_data = PackedByteArray("AAAQAAsAAQAAAAAAAAD//xEAAQAAAAAAAAAOAAYAAQACAAAAAAAOAAQAAQACAAAAAAAOAAIAAQACAAAAAAAOAAAAAQACAAAAAAAOAAcAAQACAAAAAAAaAAsAAQAEAAEAAAAbAAsAAQABAAAAAAAcAAsAAQABAAAAAAAdAAsAAQABAAAAAAAeAAsAAQABAAAAAAAfAAsAAQABAAAAAAAgAAsAAQABAAAAAAAhAAsAAQABAAAAAAAiAAsAAQABAAAAAAAjAAsAAQABAAAAAAAkAAsAAQABAAAAAAAlAAsAAQABAAAAAAAmAAsAAQABAAAAAAAnAAsAAQABAAAAAAAoAAsAAQABAAAAAAApAAsAAQABAAAAAAAqAAsAAQABAAAAAAArAAsAAQABAAAAAAAsAAsAAQABAAAAAAAtAAsAAQABAAAAAAAuAAsAAQABAAAAAAAvAAsAAQABAAAAAAAwAAsAAQABAAAAAAAxAAsAAQABAAAAAAAyAAsAAQABAAAAAAAzAAsAAQABAAAAAAA0AAsAAQABAAAAAAA1AAsAAQABAAAAAAD8/xAAAQADAAEAAAD7/xAAAQAAAAEAAAD7/w4AAQACAAAAAAD7/wwAAQACAAAAAAD7/woAAQACAAAAAAD7/wgAAQABAAEAAAD9/wgAAQABAAAAAAD+/wgAAQABAAAAAAD//wgAAQABAAAAAAD8/wgAAQABAAAAAAAAAAgAAQABAAAAAAABAAgAAQABAAAAAAACAAgAAQABAAAAAAADAAgAAQABAAAAAAAEAAgAAQABAAAAAAAFAAgAAQABAAAAAAAGAAgAAQABAAAAAAAHAAgAAQABAAAAAAAIAAgAAQABAAAAAAAJAAgAAQABAAAAAAAKAAgAAQAEAAAAAAAKAAoAAQACAAAAAAAKAAwAAQACAAAAAAAKAA4AAQACAAAAAAAKABAAAQACAAAAAAAKABIAAQADAAAAAAAJABIAAQAEAAEAAAD4/wwAAAAAAAAAAAD7/wUAAAABAAAAAAAcAAgAAAACAAAAAAAhAAUAAAADAAAAAAAjAAkAAAACAAAAAAAoAAYAAAACAAAAAAAsAAoAAAABAAAAAAAyAAUAAAABAAAAAAAyAAkAAAAAAAAAAAAtAAQAAAAAAAAAAAAnAAgAAAAAAAAAAAAdAAMAAAAAAAAAAAAwABcAAAAAAAAAAAAzABEAAAAAAAAAAAAyABwAAAACAAAAAAAAABgAAAACAAAAAAD8/xoAAAACAAAAAAD3/xUAAAABAAAAAAAGABsAAAABAAAAAAACABwAAAAAAAAAAAAFABYAAAAAAAAAAAD2/xoAAAAAAAAAAAD5/xgAAAAAAAAAAAD2/wUAAAAAAAAAAAD2/woAAAAAAAAAAAD+/wYAAAAAAAAAAAABAAAAAAAAAAAAAAD0/wIAAQAEAAAAAAD0/wQAAQACAAAAAAD0/wYAAQADAAAAAAD1/wMAAQAFAAEAAAD1/wQAAQAFAAEAAAALAB0AAQABAAAAAAAMAB0AAQABAAAAAAANAB0AAQAEAAAAAAAKAB0AAQABAAEAAAALABwAAQAFAAEAAAAMABwAAQAFAAEAAAA=")
 
-[node name="top_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=1799633666]
+[node name="mart_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=443838710]
+position = Vector2(596, 408)
+
+[node name="top_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=1799633666]
 position = Vector2(192, 12)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="4" unique_id=824744132]
+[node name="Npc" parent="." index="4" unique_id=984430629 instance=ExtResource("2_48ef8")]
+position = Vector2(156, 352)
+case = "case_1"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="5" unique_id=824744132]
 position = Vector2(468, 394)
 
 [node name="Gas+mart" type="Sprite2D" parent="StaticBody2D" index="0" unique_id=1988662944]
@@ -35,7 +49,7 @@ polygon = PackedVector2Array(12, -2, 24, -2, 24, 6, 44, 6, 44, -2, 204, -2, 204,
 position = Vector2(-244, 12)
 polygon = PackedVector2Array(32, -16, 192, -16, 192, -36, 32, -36)
 
-[node name="Door" parent="." index="5" unique_id=1369385183 instance=ExtResource("3_jgp8a")]
+[node name="Door" parent="." index="6" unique_id=1369385183 instance=ExtResource("3_jgp8a")]
 position = Vector2(192, 0)
 target_room = "town_square"
 target_spawn = "bottom_entrance"
@@ -44,7 +58,15 @@ target_spawn = "bottom_entrance"
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1eln1")
 
-[node name="House" type="StaticBody2D" parent="." index="6" unique_id=436632494]
+[node name="Door2" parent="." index="7" unique_id=386411579 instance=ExtResource("3_jgp8a")]
+position = Vector2(592, 396)
+target_room = "mart"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0" unique_id=131824385]
+position = Vector2(2, -6)
+shape = SubResource("RectangleShape2D_pemo2")
+
+[node name="House" type="StaticBody2D" parent="." index="8" unique_id=436632494]
 position = Vector2(322, 194)
 scale = Vector2(2, 2)
 
@@ -56,7 +78,7 @@ texture = ExtResource("4_yph4d")
 position = Vector2(0, -52)
 polygon = PackedVector2Array(-17, 49, -17, 35, -49, 35, -49, 17, -17, 17, -17, 3, 45, 3, 45, 49)
 
-[node name="House2" type="StaticBody2D" parent="." index="7" unique_id=1251249786]
+[node name="House2" type="StaticBody2D" parent="." index="9" unique_id=1251249786]
 position = Vector2(50, 298)
 scale = Vector2(2, 2)
 
@@ -67,3 +89,15 @@ texture = ExtResource("4_yph4d")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House2" index="1" unique_id=791029346]
 position = Vector2(0, -52)
 polygon = PackedVector2Array(-17, 49, -17, 35, -49, 35, -49, 17, -17, 17, -17, 3, 45, 3, 45, 49)
+
+[node name="CaseObject" parent="." index="10" unique_id=1672865375 instance=ExtResource("5_pemo2")]
+position = Vector2(180, 448)
+
+[node name="NpcCase2" parent="." index="11" unique_id=700000002 instance=ExtResource("2_48ef8")]
+position = Vector2(156, 352)
+profile = ExtResource("case2_jigsaw_case2")
+case = "case_2"
+
+[node name="CaseObject2" parent="." index="12" unique_id=856000839 instance=ExtResource("8_pgjqb")]
+z_index = 2
+position = Vector2(488, 384)

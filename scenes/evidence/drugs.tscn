@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cs6wi50faeixw"]
+
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="1_uajfw"]
+[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="2_00eha"]
+[ext_resource type="Texture2D" uid="uid://bsdjeg1gnaq18" path="res://sprites/drugs.png" id="3_03hbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+size = Vector2(20, 21)
+
+[node name="CaseObject" unique_id=1672865375 instance=ExtResource("1_uajfw")]
+cases = Array[String](["case_1"])
+
+[node name="EvidenceItem" parent="." index="0" unique_id=1982682065 groups=["interactable"] instance=ExtResource("2_00eha")]
+evidence_id = "drugs"
+display_name = "Drugs"
+court_sprite = ExtResource("3_03hbc")
+grants_flag = "found_drugs"
+pickup_text = Array[String](["It's Methamphetamine. Illegal, too.", "You carefully put it it in a sterile bag.", "DRUGS was added to your EVIDENCE."])
+
+[node name="Sprite2D" type="Sprite2D" parent="EvidenceItem" index="0" unique_id=1238273080]
+texture = ExtResource("3_03hbc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvidenceItem" index="1" unique_id=2015280175]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1eln1")

@@ -8,3 +8,5 @@ class_name DialogueChoice extends Resource
 @export var next_id: String = ""
 @export var once: bool = false
 @export var choice_id: String = ""
+## gives the spent confrontation point back when this choice is picked.
+@export var refunds_confront: bool = false

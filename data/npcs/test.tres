@@ -47,7 +47,7 @@ metadata/_custom_type_script = "uid://m5h7gpc5npj7"
 
 [resource]
 script = ExtResource("1_mh1b5")
-id = "test_npc"
+id = "test"
 display_name = "Test NPC"
 dialogue = SubResource("Resource_7f327")
 metadata/_custom_type_script = "uid://caoggtt3s6h4k"

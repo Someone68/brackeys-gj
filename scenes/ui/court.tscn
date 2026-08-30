@@ -8,44 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://b0h4y2y4pmpp" path="res://scenes/ui/transparent_panel.tscn" id="5_okrwu"]
 [ext_resource type="Texture2D" uid="uid://b3u8qotvueljv" path="res://sprites/scroll_ui.png" id="6_dm44l"]
 [ext_resource type="PackedScene" uid="uid://c44xjr4upq8dn" path="res://scenes/ui/selector.tscn" id="7_tw3vo"]
-[ext_resource type="Script" uid="uid://br48hupmaja2i" path="res://scripts/selector_item.gd" id="8_nte0y"]
 [ext_resource type="PackedScene" uid="uid://4goohngspn1y" path="res://scenes/dialog_box.tscn" id="8_p0sd7"]
-[ext_resource type="Texture2D" uid="uid://bb63atv6fi323" path="res://sprites/mrKen.png" id="9_1u2f4"]
-[ext_resource type="Texture2D" uid="uid://cvgnfouku3dkk" path="res://sprites/green.png" id="10_ddpkk"]
-[ext_resource type="Texture2D" uid="uid://rhhf8wx8utf1" path="res://sprites/gray.png" id="11_tsfca"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1eln1"]
 texture = ExtResource("1_3wubk")
-
-[sub_resource type="Resource" id="Resource_a2elc"]
-script = ExtResource("8_nte0y")
-texture = ExtResource("9_1u2f4")
-caption = "one"
-metadata/_custom_type_script = "uid://br48hupmaja2i"
-
-[sub_resource type="Resource" id="Resource_qubcb"]
-script = ExtResource("8_nte0y")
-texture = ExtResource("10_ddpkk")
-caption = "two"
-metadata/_custom_type_script = "uid://br48hupmaja2i"
-
-[sub_resource type="Resource" id="Resource_j0jfk"]
-script = ExtResource("8_nte0y")
-texture = ExtResource("11_tsfca")
-caption = "three"
-metadata/_custom_type_script = "uid://br48hupmaja2i"
-
-[sub_resource type="Resource" id="Resource_1eln1"]
-script = ExtResource("8_nte0y")
-texture = ExtResource("6_dm44l")
-caption = "ev.1"
-metadata/_custom_type_script = "uid://br48hupmaja2i"
-
-[sub_resource type="Resource" id="Resource_x3s6g"]
-script = ExtResource("8_nte0y")
-texture = ExtResource("3_vnv1o")
-caption = "ev.2"
-metadata/_custom_type_script = "uid://br48hupmaja2i"
 
 [node name="Court" type="Control" unique_id=542322436]
 layout_mode = 3
@@ -128,7 +94,6 @@ offset_bottom = 98.0
 layout_mode = 1
 offset_bottom = 8.0
 enabled = true
-items = Array[ExtResource("8_nte0y")]([SubResource("Resource_a2elc"), SubResource("Resource_qubcb"), SubResource("Resource_j0jfk")])
 
 [node name="EvidencePanel" parent="." unique_id=1061160677 instance=ExtResource("5_okrwu")]
 layout_mode = 0
@@ -139,7 +104,6 @@ offset_bottom = 163.0
 
 [node name="Selector" parent="EvidencePanel" unique_id=923809746 instance=ExtResource("7_tw3vo")]
 layout_mode = 1
-items = Array[ExtResource("8_nte0y")]([SubResource("Resource_1eln1"), SubResource("Resource_x3s6g")])
 
 [node name="Notes" parent="." unique_id=748313566 instance=ExtResource("4_vnv1o")]
 layout_mode = 0

@@ -1,0 +1,136 @@
+[gd_resource type="Resource" script_class="CaseData" format=3 uid="uid://dn17qw4wejwip"]
+
+[ext_resource type="Script" uid="uid://cbniqpo87y8k4" path="res://scripts/case_data.gd" id="1_case"]
+[ext_resource type="Script" uid="uid://dcojxs76ds362" path="res://scripts/court_challenge.gd" id="2_chal"]
+[ext_resource type="Script" uid="uid://cw6sdyrv4xru6" path="res://scripts/court_reaction.gd" id="2_dps6d"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="2_profile"]
+[ext_resource type="Script" uid="uid://c4najngawgi37" path="res://scripts/court_response.gd" id="2_resp"]
+[ext_resource type="Resource" uid="uid://dk6gietl0oy5w" path="res://data/npcs/ace_case1.tres" id="3_ace_case1"]
+[ext_resource type="Resource" uid="uid://nr1oc0yjudun" path="res://data/npcs/end_case1.tres" id="3_end_case1"]
+[ext_resource type="Resource" uid="uid://c1hpo23cjga0f" path="res://data/npcs/fortune_case1.tres" id="3_fortune_case1"]
+[ext_resource type="Resource" uid="uid://dbsckjd1dc6vj" path="res://data/npcs/green_case1.tres" id="3_green_case1"]
+[ext_resource type="Resource" uid="uid://rysnpmojpjtb" path="res://data/npcs/grey_case1.tres" id="3_grey_case1"]
+[ext_resource type="Resource" uid="uid://bk3v6dpremhpm" path="res://data/npcs/jigsaw_case1.tres" id="3_jigsaw_case1"]
+[ext_resource type="Resource" uid="uid://ckkqtkhsrs4ji" path="res://data/npcs/mrken_case1.tres" id="3_mrken_case1"]
+[ext_resource type="Resource" uid="uid://7taokxl0mcy" path="res://data/npcs/mrleaf_case1.tres" id="3_mrleaf_case1"]
+[ext_resource type="Resource" uid="uid://deyddoms734ht" path="res://data/npcs/msleaf_case1.tres" id="3_msleaf_case1"]
+[ext_resource type="Resource" uid="uid://r1onfuiijiwh" path="res://data/npcs/red_case1.tres" id="3_red_case1"]
+[ext_resource type="Resource" uid="uid://ckm25d88ut07r" path="res://data/npcs/robber_case1.tres" id="3_robber_case1"]
+
+[sub_resource type="Resource" id="Resource_q1a1"]
+script = ExtResource("2_resp")
+label = "Trust me bro"
+reply = "The court does not like your reason."
+strength = -15
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a2"]
+script = ExtResource("2_resp")
+label = "The people have told me to check the convenience store"
+reply = "The court does not like your reason."
+strength = -10
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a3"]
+script = ExtResource("2_resp")
+label = "There were traces of methamphetamine near the store"
+proof = Array[String](["drugs", "drugs_and_money"])
+reply = "The court thinks that your reason is reasonable but does not relate to the question."
+strength = 5
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1a4"]
+script = ExtResource("2_resp")
+label = "There were lots of splattered drugs behind the store"
+proof = Array[String](["drugs", "drugs_and_money"])
+reply = "The court thinks that your reason is reasonable and justified."
+strength = 30
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q1"]
+script = ExtResource("2_chal")
+prompt = "The court wants to hear why you have chosen Mr. Ken for the crime, illegal selling of drugs."
+responses = Array[ExtResource("2_resp")]([SubResource("Resource_q1a1"), SubResource("Resource_q1a2"), SubResource("Resource_q1a3"), SubResource("Resource_q1a4")])
+metadata/_custom_type_script = "uid://dcojxs76ds362"
+
+[sub_resource type="Resource" id="Resource_q2a1"]
+script = ExtResource("2_resp")
+label = "There was methamphetamine near some houses"
+reply = "The court does not like your reasoning."
+strength = -10
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a2"]
+script = ExtResource("2_resp")
+label = "There was methamphetamine near the exterior of the store"
+proof = Array[String](["drugs", "drugs_and_money"])
+reply = "The court thinks your reason is reasonable but not completely justified."
+strength = 5
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a3"]
+script = ExtResource("2_resp")
+label = "There was methamphetamine inside the back of the store"
+proof = Array[String](["drugs_and_money"])
+reply = "The court thinks that your reason is reasonable and justified."
+strength = 25
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2a4"]
+script = ExtResource("2_resp")
+label = "Trust me bro"
+reply = "The court thinks you're dumb."
+strength = -15
+metadata/_custom_type_script = "uid://c4najngawgi37"
+
+[sub_resource type="Resource" id="Resource_q2"]
+script = ExtResource("2_chal")
+prompt = "The court wants to hear why you have chosen this as your evidence."
+responses = Array[ExtResource("2_resp")]([SubResource("Resource_q2a1"), SubResource("Resource_q2a2"), SubResource("Resource_q2a3"), SubResource("Resource_q2a4")])
+metadata/_custom_type_script = "uid://dcojxs76ds362"
+
+[sub_resource type="Resource" id="Resource_react_guilty"]
+script = ExtResource("2_dps6d")
+npc_id = "mrken"
+evidence_id = "drugs"
+accusation_line = "The person you have accused could be guilty, however you must plead your case."
+challenges = Array[ExtResource("2_chal")]([SubResource("Resource_q1"), SubResource("Resource_q2")])
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_guilty2"]
+script = ExtResource("2_dps6d")
+npc_id = "mrken"
+evidence_id = "drugs_and_money"
+accusation_line = "The person you have accused could be guilty, however you must plead your case."
+challenges = Array[ExtResource("2_chal")]([SubResource("Resource_q1"), SubResource("Resource_q2")])
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_ken_wrong"]
+script = ExtResource("2_dps6d")
+npc_id = "mrken"
+evidence_id = "*"
+accusation_line = "The court does not see why the person you selected is guilty."
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[sub_resource type="Resource" id="Resource_react_innocent"]
+script = ExtResource("2_dps6d")
+npc_id = "*"
+evidence_id = "*"
+accusation_line = "The court says the person you have accused is innocent."
+metadata/_custom_type_script = "uid://cw6sdyrv4xru6"
+
+[resource]
+script = ExtResource("1_case")
+id = "case_1"
+title = "Just need the money"
+briefing = "- TYPE: Drug dealing
+- 4 Confrontations
+- Suspicious items have been exchanged across civilians lately. Find the cause and deliver justice."
+culprit_id = "mrken"
+max_confronts = 4
+npcs = Array[ExtResource("2_profile")]([ExtResource("3_fortune_case1"), ExtResource("3_grey_case1"), ExtResource("3_red_case1"), ExtResource("3_robber_case1"), ExtResource("3_msleaf_case1"), ExtResource("3_mrleaf_case1"), ExtResource("3_green_case1"), ExtResource("3_ace_case1"), ExtResource("3_end_case1"), ExtResource("3_jigsaw_case1"), ExtResource("3_mrken_case1")])
+reactions = Array[ExtResource("2_dps6d")]([SubResource("Resource_react_guilty"), SubResource("Resource_react_guilty2"), SubResource("Resource_react_ken_wrong"), SubResource("Resource_react_innocent")])
+convict_threshold = 35
+verdict_guilty = "PLACEHOLDER: not in the script yet."
+verdict_acquit = "PLACEHOLDER: not in the script yet."
+metadata/_custom_type_script = "uid://cbniqpo87y8k4"

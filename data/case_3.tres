@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CaseData" format=3 uid="uid://lsyu81sc3k4v"]
+
+[ext_resource type="Script" uid="uid://cbniqpo87y8k4" path="res://scripts/case_data.gd" id="1_case3"]
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_rmh0u"]
+[ext_resource type="Script" uid="uid://cw6sdyrv4xru6" path="res://scripts/court_reaction.gd" id="2_ag8jt"]
+
+[resource]
+script = ExtResource("1_case3")
+id = "case_3"
+title = "5 missing"
+briefing = "- TYPE: Homicide
+- 5 Confrontations
+- 5 civilians have gone missing."
+max_confronts = 5
+base_evidence_required = 4
+verdict_guilty = "PLACEHOLDER guilty verdict."
+verdict_acquit = "PLACEHOLDER acquittal."
+metadata/_custom_type_script = "uid://cbniqpo87y8k4"

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://sc21cqaxocf1"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_teyms"]
+[ext_resource type="Resource" uid="uid://ckm25d88ut07r" path="res://data/npcs/robber_case1.tres" id="2_5pnj7"]
+[ext_resource type="Texture2D" uid="uid://caipw6nefli4a" path="res://sprites/rob_berr.png" id="3_5rivh"]
+
+[node name="Npc" unique_id=984430629 instance=ExtResource("1_teyms")]
+profile = ExtResource("2_5pnj7")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1662044589]
+texture = ExtResource("3_5rivh")
+flip_h = true

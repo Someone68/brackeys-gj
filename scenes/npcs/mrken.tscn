@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bmyjp7nruul62"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_iq4k7"]
+[ext_resource type="Resource" uid="uid://ckkqtkhsrs4ji" path="res://data/npcs/mrken_case1.tres" id="2_xxceq"]
+
+[node name="Npc" unique_id=984430629 instance=ExtResource("1_iq4k7")]
+profile = ExtResource("2_xxceq")

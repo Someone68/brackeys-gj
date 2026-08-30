@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c6t7wbvk4s40x"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_c5qk1"]
+[ext_resource type="Texture2D" uid="uid://b3wn0k445xjdn" path="res://sprites/En-Piisi _End”.png" id="2_8utlf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thi2y"]
+size = Vector2(12, 7)
+
+[node name="Npc" unique_id=984430629 instance=ExtResource("1_c5qk1")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=1662044589]
+texture = ExtResource("2_8utlf")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1444912055]
+shape = SubResource("RectangleShape2D_thi2y")

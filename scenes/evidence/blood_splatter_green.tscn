@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dhtraht7v5hv4"]
+
+[ext_resource type="PackedScene" uid="uid://d0m8yge6l8ajk" path="res://scenes/evidence/case_object.tscn" id="1_2j6sc"]
+[ext_resource type="PackedScene" uid="uid://dfhwxlqr5lhfo" path="res://scenes/evidence/evidence_item.tscn" id="2_86kwv"]
+[ext_resource type="Texture2D" uid="uid://bmpxa55a0mwq3" path="res://sprites/blood_splatter2.png" id="3_86kwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+
+[node name="CaseObject" unique_id=1672865375 instance=ExtResource("1_2j6sc")]
+cases = Array[String](["case_2"])
+
+[node name="EvidenceItem" parent="." index="0" unique_id=1982682065 instance=ExtResource("2_86kwv")]
+evidence_id = "blood_spatter_green"
+display_name = "Blood splatter (Green's house)"
+court_sprite = ExtResource("3_86kwv")
+pickup_text = Array[String](["Blood. It's dry.", "You take a picture. BLOOD SPLATTER was added to your EVIDENCE."])
+
+[node name="Sprite2D" type="Sprite2D" parent="EvidenceItem" index="0" unique_id=546999232]
+texture = ExtResource("3_86kwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EvidenceItem" index="1" unique_id=1059254706]
+shape = SubResource("RectangleShape2D_1eln1")

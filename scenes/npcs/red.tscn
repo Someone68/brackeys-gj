@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dhh3hj031tvfw"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_i2auy"]
+[ext_resource type="Resource" uid="uid://r1onfuiijiwh" path="res://data/npcs/red_case1.tres" id="2_2k6v4"]
+[ext_resource type="Texture2D" uid="uid://dl1gqfvy3wrcf" path="res://sprites/officer_red.png" id="3_dnxuh"]
+
+[node name="Npc" unique_id=984430629 instance=ExtResource("1_i2auy")]
+profile = ExtResource("2_2k6v4")
+
+[node name="Sprite2D" parent="." index="0" unique_id=1662044589]
+texture = ExtResource("3_dnxuh")
