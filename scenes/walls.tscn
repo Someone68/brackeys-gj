@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://fdhdrds437no" path="res://sprites/trees.png" id="1_bte35"]
 [ext_resource type="Texture2D" uid="uid://wq6c3pykk0uy" path="res://sprites/mailbox+fence.png" id="2_sr187"]
 [ext_resource type="Texture2D" uid="uid://doji6sttl8011" path="res://sprites/invisible_wall.png" id="3_exnah"]
+[ext_resource type="Texture2D" uid="uid://cima4h3aldo4c" path="res://sprites/bar_tilesets.png" id="4_wcuyo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eruj1"]
 resource_name = "tree"
@@ -54,17 +55,38 @@ texture_region_size = Vector2i(16, 32)
 0:1/0 = 0
 0:1/0/texture_origin = Vector2i(0, 4)
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -20, 4, -20, 4, 0, 8, 0, 8, 8, 4, 8, -4, 8)
+3:1/0 = 0
+3:1/0/texture_origin = Vector2i(0, 4)
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 4, 0, 4, 8, -8, 8)
+4:1/0 = 0
+4:1/0/texture_origin = Vector2i(0, 4)
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 0, 8, 0, 8, 8, -4, 8)
+5:1/0 = 0
+5:1/0/texture_origin = Vector2i(0, 4)
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 0, 4, 0, 4, 8, -4, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wcuyo"]
 texture = ExtResource("3_exnah")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gyw1"]
+texture = ExtResource("4_wcuyo")
+0:0/size_in_atlas = Vector2i(4, 2)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28, -4, 28, -4, 28, 8, -28, 8)
+0:2/size_in_atlas = Vector2i(2, 2)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -8, 12, -8, 12, 16, -12, 16)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
+
 [sub_resource type="TileSet" id="TileSet_eruj1"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_eruj1")
 sources/1 = SubResource("TileSetAtlasSource_t6cq8")
 sources/2 = SubResource("TileSetAtlasSource_wcuyo")
+sources/3 = SubResource("TileSetAtlasSource_8gyw1")
 
 [node name="Walls" type="TileMapLayer" unique_id=946216624]
 y_sort_enabled = true

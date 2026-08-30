@@ -10,6 +10,10 @@ const ROOMS := {
 	"town_square": "res://scenes/rooms/town_square.tscn",
 	"upper_branch": "res://scenes/rooms/upper_branch.tscn",
 	"left_branch": "res://scenes/rooms/left_branch.tscn",
+	"bottom_branch": "res://scenes/rooms/bottom_branch.tscn",
+	"right_branch": "res://scenes/rooms/right_branch.tscn",
+	"church_branch": "res://scenes/rooms/church_branch.tscn",
+	"bar": "res://scenes/rooms/bar.tscn",
 	"police_station": "res://scenes/rooms/police_station.tscn"
 }
 
@@ -17,6 +21,7 @@ func goto(room_id: String, spawn_name: String = "default") -> void:
 	if _transitioning: return
 	if not ROOMS.has(room_id):
 		push_error("no room: " + room_id); return
+	_transitioning = true
 	player.in_transition = true
 	
 	await Fade.fade_out()
@@ -25,14 +30,14 @@ func goto(room_id: String, spawn_name: String = "default") -> void:
 	await get_tree().process_frame
 	
 	var room = load(ROOMS[room_id]).instantiate()
-	host.add_child(room)
-	await get_tree().process_frame
-	current_id = room_id
-	
 	var spawn = room.get_node_or_null("Spawns/" + spawn_name)
 	if spawn == null:
 		push_error("no spawn '%s' in %s" % [spawn_name, room_id])
+	# move the player onto the spawn in the same frame the room is added, so
+	# physics never sees them standing on a door at their old coordinates
+	host.add_child(room)
 	player.global_position = spawn.global_position if spawn else Vector2.ZERO
+	current_id = room_id
 
 	_fit_camera(room)
 	room_changed.emit(room_id)

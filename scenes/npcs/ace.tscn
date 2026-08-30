@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://b5o3h5slkkjfs"]
+
+[ext_resource type="PackedScene" uid="uid://c883hage6mlwo" path="res://scenes/npcs/npc.tscn" id="1_up0g7"]
+[ext_resource type="Resource" uid="uid://bcfpgwy61qgse" path="res://data/npcs/ace_case2.tres" id="2_ppfmy"]
+[ext_resource type="Texture2D" uid="uid://cc8ch0oq8tywg" path="res://sprites/ace.png" id="2_q2um6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ppfmy"]
+size = Vector2(24, 27)
+
+[node name="Ace" unique_id=984430629 instance=ExtResource("1_up0g7")]
+profile = ExtResource("2_ppfmy")
+case = "case_2"
+
+[node name="Sprite2D" parent="." index="0" unique_id=1662044589]
+texture = ExtResource("2_q2um6")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1444912055]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_ppfmy")

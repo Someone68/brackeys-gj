@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://cireixd18hmyi"]
+
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_weere"]
+
+[resource]
+script = ExtResource("1_weere")
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

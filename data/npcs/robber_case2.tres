@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://citr4xdt4on18"]
+
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_cf16m"]
+
+[resource]
+script = ExtResource("1_cf16m")
+id = "robber_case2"
+display_name = "Rob Berr"
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

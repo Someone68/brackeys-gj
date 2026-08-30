@@ -9,7 +9,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3s6g"]
 size = Vector2(16, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wf0tg"]
+size = Vector2(16, 80)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1eln1"]
+size = Vector2(80, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js354"]
 size = Vector2(80, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vp6q"]
@@ -35,25 +41,46 @@ target_spawn = "right_entrance"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door" index="0" unique_id=1473344056]
 shape = SubResource("RectangleShape2D_x3s6g")
 
-[node name="Door2" parent="." index="4" unique_id=723416264 instance=ExtResource("2_3q3uc")]
-position = Vector2(184, 0)
+[node name="Door3" parent="." index="4" unique_id=531815654 instance=ExtResource("2_3q3uc")]
+position = Vector2(376, 184)
+target_room = "right_branch"
+target_spawn = "left_entrance"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3" index="0" unique_id=1401512104]
+shape = SubResource("RectangleShape2D_wf0tg")
+
+[node name="Door2" parent="." index="5" unique_id=723416264 instance=ExtResource("2_3q3uc")]
+position = Vector2(184, -8)
 target_room = "upper_branch"
 target_spawn = "bottom_entrance"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door2" index="0" unique_id=1751061843]
-position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_1eln1")
 
-[node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="0" unique_id=1648740687]
+[node name="Door4" parent="." index="6" unique_id=2145934629 instance=ExtResource("2_3q3uc")]
+position = Vector2(184, 376)
+target_room = "bottom_branch"
+target_spawn = "top_entrance"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4" index="0" unique_id=1500781128]
+shape = SubResource("RectangleShape2D_js354")
+
+[node name="right_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="0" unique_id=2084424231]
+position = Vector2(356, 184)
+
+[node name="left_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=1648740687]
 position = Vector2(8, 184)
 
-[node name="default" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="1" unique_id=609649644]
+[node name="default" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=609649644]
 position = Vector2(184, 216)
 
-[node name="top_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="2" unique_id=2134839833]
+[node name="top_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="3" unique_id=2134839833]
 position = Vector2(184, 8)
 
-[node name="Interactable" parent="." index="6" unique_id=556332728 instance=ExtResource("3_ohnvu")]
+[node name="bottom_entrance" type="Marker2D" parent="Spawns" parent_id_path=PackedInt32Array(1307157) index="4" unique_id=1883304352]
+position = Vector2(184, 360)
+
+[node name="Interactable" parent="." index="8" unique_id=556332728 instance=ExtResource("3_ohnvu")]
 position = Vector2(128, 112)
 dialogue = Array[String](["North: Police Station
 South: Church
@@ -69,7 +96,7 @@ centered = false
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_6vp6q")
 
-[node name="Interactable2" parent="." index="7" unique_id=989209185 instance=ExtResource("3_ohnvu")]
+[node name="Interactable2" parent="." index="9" unique_id=989209185 instance=ExtResource("3_ohnvu")]
 position = Vector2(224, 112)
 dialogue = Array[String](["Welcome to the center of Leaf City. ", "Here lies the memorial of nothing, which nobody knows about since its nothing and there is no memorial."])
 

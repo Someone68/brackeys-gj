@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="NPCProfile" format=3 uid="uid://cnqcb2yt05c20"]
+
+[ext_resource type="Script" uid="uid://caoggtt3s6h4k" path="res://scripts/npc_profile.gd" id="1_k3e3e"]
+
+[resource]
+script = ExtResource("1_k3e3e")
+id = "msleaf_case2"
+display_name = "Ms. Leaf"
+metadata/_custom_type_script = "uid://caoggtt3s6h4k"

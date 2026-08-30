@@ -1,5 +1,9 @@
 extends StaticBody2D
 @export var profile: NPCProfile
+@export var case: String
+
+func _ready() -> void:
+	if (case != CaseState.current.id): queue_free()
 
 func interact() -> void:
 	var entry := DialogueUtil.pick(profile.dialogue.idle)
@@ -18,11 +22,15 @@ func interact() -> void:
 		var r: String = await Global.show_choices(final_choices, 0)
 		if r == press:
 			await confront()
-		elif(r == profile.confront_options[2]):
-			await Global.show_dialog(profile.slot_1_response, 0.02, [4.5, 6], true, profile.display_name)
-		elif(r == profile.confront_options[3]):
-			await Global.show_dialog(profile.slot_2_response, 0.02, [4.5, 6], true, profile.display_name)
-		elif(r == profile.confront_options[0]):
+		if (len(profile.confront_options) >= 3):
+			if(r == profile.confront_options[2]):
+				await Global.show_dialog(profile.slot_1_response, 0.02, [4.5, 6], true, profile.display_name)
+		
+		if (len(profile.confront_options) >= 4):
+			if(r == profile.confront_options[3]):
+				await Global.show_dialog(profile.slot_2_response, 0.02, [4.5, 6], true, profile.display_name)
+		
+		if(r == profile.confront_options[0]):
 			await Global.show_dialog(profile.leave_response, 0.02, [4.5, 6], true, profile.display_name)
 
 func confront() -> void:
